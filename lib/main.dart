@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:family_contact_book/screens/contacts_screen.dart';
-import 'package:family_contact_book/providers/contacts_provider.dart';
+import './screens/contacts_screen.dart';
+import './providers/contacts_provider.dart';
+import './screens/addContacts_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: ContactScreen(),
+        routes: {
+          AddContactScreen.routeName: (ctx) => AddContactScreen(),
+        },
       ),
     );
   }
