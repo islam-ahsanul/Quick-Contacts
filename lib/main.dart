@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './screens/contacts_screen.dart';
+import './screens/contacts_list_screen.dart';
 import './providers/contacts_provider.dart';
 import './screens/addContacts_screen.dart';
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ContactScreen(),
+        home: ContactListScreen(),
         routes: {
           AddContactScreen.routeName: (ctx) => AddContactScreen(),
         },
