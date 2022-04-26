@@ -21,24 +21,34 @@ class ContactListScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Consumer<ContactsProvider>(
-        child: const Center(
-          child: Text('No contacts yet'),
-        ),
-        builder: (ctx, contactsProvider, ch) => contactsProvider.items.length <=
-                0
-            ? Text('No contacts yet')
-            : ListView.builder(
-                itemCount: contactsProvider.items.length,
-                itemBuilder: (ctx, i) => ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage: FileImage(contactsProvider.items[i].image),
-                  ),
-                  title: Text(contactsProvider.items[i].name),
-                  onTap: () {
-                    // go to detail screen
-                  },
+      body: FutureBuilder(
+        future: Provider.of<ContactsProvider>(context, listen: false)
+            .fetchAndSetContacts(),
+        builder: (ctx, snapshot) => snapshot.connectionState ==
+                ConnectionState.waiting
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : Consumer<ContactsProvider>(
+                child: const Center(
+                  child: Text('No contacts yet'),
                 ),
+                builder: (ctx, contactsProvider, ch) =>
+                    contactsProvider.items.length <= 0
+                        ? Text('No contacts yet')
+                        : ListView.builder(
+                            itemCount: contactsProvider.items.length,
+                            itemBuilder: (ctx, i) => ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage:
+                                    FileImage(contactsProvider.items[i].image),
+                              ),
+                              title: Text(contactsProvider.items[i].name),
+                              onTap: () {
+                                // go to detail screen
+                              },
+                            ),
+                          ),
               ),
       ),
     );
