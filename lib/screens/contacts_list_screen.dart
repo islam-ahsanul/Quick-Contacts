@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import './addContacts_screen.dart';
 import '../providers/contacts_provider.dart';
+import './contacts_detail_screen.dart';
 
 class ContactListScreen extends StatelessWidget {
   const ContactListScreen({Key? key}) : super(key: key);
@@ -46,6 +47,9 @@ class ContactListScreen extends StatelessWidget {
                               title: Text(contactsProvider.items[i].name),
                               onTap: () {
                                 // go to detail screen
+                                Navigator.of(context).pushNamed(
+                                    ContactDetailScreen.routeName,
+                                    arguments: contactsProvider.items[i].id);
                               },
                             ),
                           ),

@@ -10,6 +10,10 @@ class ContactsProvider with ChangeNotifier {
     return [..._items];
   }
 
+  Contact findById(String id) {
+    return _items.firstWhere((contact) => contact.id == id);
+  }
+
   void addContact(
     String pickedName,
     File pickedImage,
