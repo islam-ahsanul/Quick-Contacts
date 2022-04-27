@@ -37,38 +37,54 @@ class _ImgaeInputState extends State<ImgaeInput> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        Container(
-          width: 100,
-          height: 100,
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: 1,
-              color: Colors.grey,
-            ),
+        Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
           ),
-          child: _storedImage != null
-              ? Image.file(
-                  _storedImage,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                )
-              : Text(
-                  'No image selected',
-                  textAlign: TextAlign.center,
-                ),
-          alignment: Alignment.center,
+          elevation: 10,
+          child: Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              border: Border.all(
+                width: 2,
+                color: Colors.white,
+              ),
+            ),
+            child: _storedImage != null
+                ? ClipOval(
+                    child: Image.file(
+                      _storedImage,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                    ),
+                  )
+                : ClipOval(
+                    child: Image.asset(
+                      'assets/images/cont_icon.png',
+                      fit: BoxFit.cover,
+                      height: 100,
+                      width: 100,
+                    ),
+                  ),
+            alignment: Alignment.center,
+          ),
         ),
         SizedBox(
           width: 10,
         ),
-        Expanded(
-          child: ElevatedButton.icon(
-            onPressed: _takePicture,
-            icon: Icon(Icons.camera),
-            label: Text('Take picture'),
-          ),
+        // ElevatedButton.icon(
+        //   onPressed: _takePicture,
+        //   icon: Icon(Icons.camera),
+        //   label: Text('Take picture'),
+        // ),
+        IconButton(
+          iconSize: 35,
+          onPressed: _takePicture,
+          icon: Icon(Icons.camera_alt_rounded),
         ),
       ],
     );

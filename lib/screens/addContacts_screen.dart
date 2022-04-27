@@ -69,14 +69,14 @@ class _AddContactScreenState extends State<AddContactScreen> {
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
+                    ImgaeInput(onSelectImage: _selectImage),
+                    SizedBox(
+                      height: 10,
+                    ),
                     TextField(
                       decoration: InputDecoration(labelText: 'Name'),
                       controller: _nameController,
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ImgaeInput(onSelectImage: _selectImage),
                   ],
                 ),
               ),
