@@ -7,7 +7,7 @@ class DBHelper {
     return sql.openDatabase(path.join(dbPath, 'contacts.db'),
         onCreate: (db, version) {
       return db.execute(
-          'CREATE TABLE user_contacts(id TEXT PRIMARY KEY, name TEXT, image TEXT)');
+          'CREATE TABLE user_contacts(id TEXT PRIMARY KEY, name TEXT, image TEXT, email TEXT, address TEXT, note TEXT)');
     }, version: 1);
   }
 

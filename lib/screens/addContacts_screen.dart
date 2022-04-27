@@ -49,12 +49,22 @@ class _AddContactScreenState extends State<AddContactScreen> {
     File backupImage = await getImageFileFromAssets('cont_icon.png');
 
     if (_pickedImage == null) {
-      Provider.of<ContactsProvider>(context, listen: false)
-          .addContact(_nameController.text, backupImage);
+      Provider.of<ContactsProvider>(context, listen: false).addContact(
+        _nameController.text,
+        backupImage,
+        _emailController.text,
+        _addressController.text,
+        _notesController.text,
+      );
       Navigator.of(context).pop();
     } else {
-      Provider.of<ContactsProvider>(context, listen: false)
-          .addContact(_nameController.text, _pickedImage);
+      Provider.of<ContactsProvider>(context, listen: false).addContact(
+        _nameController.text,
+        _pickedImage,
+        _emailController.text,
+        _addressController.text,
+        _notesController.text,
+      );
       Navigator.of(context).pop();
     }
   }

@@ -10,14 +10,22 @@ class ContactsProvider with ChangeNotifier {
     return [..._items];
   }
 
-  void addContact(String pickedName, File pickedImage) {
+  void addContact(
+    String pickedName,
+    File pickedImage,
+    String pickedEmail,
+    String pickedAddress,
+    String pickedNote,
+  ) {
     final newContact = Contact(
       id: DateTime.now().toString(),
+      image: pickedImage,
       name: pickedName,
       // phone: 017,
-      // email: 'null',
-      // address: 'null',
-      image: pickedImage,
+      email: pickedEmail,
+      address: pickedAddress,
+      note: pickedNote,
+      // birthday:
     );
     _items.add(newContact);
     notifyListeners();
@@ -25,6 +33,9 @@ class ContactsProvider with ChangeNotifier {
       'id': newContact.id,
       'name': newContact.name,
       'image': newContact.image.path,
+      'email': newContact.email,
+      'address': newContact.address,
+      'note': newContact.note,
     });
   }
 
@@ -38,6 +49,9 @@ class ContactsProvider with ChangeNotifier {
             image: File(
               item['image'],
             ),
+            email: item['email'],
+            address: item['address'],
+            note: item['note'],
           ),
         )
         .toList();
