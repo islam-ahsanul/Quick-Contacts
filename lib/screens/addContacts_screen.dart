@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:async';
@@ -61,20 +63,27 @@ class _AddContactScreenState extends State<AddContactScreen> {
         title: Text('Add Contact'),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ImgaeInput(onSelectImage: _selectImage),
                     SizedBox(
                       height: 10,
                     ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Name'),
+                    TextFormField(
+                      decoration: InputDecoration(
+                          // labelText: 'Name',
+                          hintText: 'Enter Name',
+                          border: OutlineInputBorder(),
+                          icon: Icon(
+                            Icons.account_box_rounded,
+                            size: 45,
+                          )),
                       controller: _nameController,
                     ),
                   ],
