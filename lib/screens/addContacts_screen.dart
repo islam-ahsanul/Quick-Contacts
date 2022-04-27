@@ -21,6 +21,9 @@ class AddContactScreen extends StatefulWidget {
 
 class _AddContactScreenState extends State<AddContactScreen> {
   final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _addressController = TextEditingController();
+  final _notesController = TextEditingController();
   var _pickedImage = null;
 
   void _selectImage(File pickedImage) {
@@ -38,10 +41,10 @@ class _AddContactScreenState extends State<AddContactScreen> {
   }
 
   void _saveContact() async {
-    // if (_nameController.text.isEmpty || _pickedImage == null) {
-    //   // can add showDialog
-    //   return;
-    // }
+    if (_nameController.text.isEmpty) {
+      // can add showDialog
+      return;
+    }
 
     File backupImage = await getImageFileFromAssets('cont_icon.png');
 
@@ -75,17 +78,19 @@ class _AddContactScreenState extends State<AddContactScreen> {
                     SizedBox(
                       height: 10,
                     ),
-                    TextFormField(
-                      decoration: InputDecoration(
-                          // labelText: 'Name',
-                          hintText: 'Enter Name',
-                          border: OutlineInputBorder(),
-                          icon: Icon(
-                            Icons.account_box_rounded,
-                            size: 45,
-                          )),
-                      controller: _nameController,
+                    buildName(),
+                    SizedBox(
+                      height: 10,
                     ),
+                    buildEmail(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    buildAddress(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    builNotes(),
                   ],
                 ),
               ),
@@ -100,4 +105,62 @@ class _AddContactScreenState extends State<AddContactScreen> {
       ),
     );
   }
+
+  Widget buildName() => TextField(
+        controller: _nameController,
+        decoration: InputDecoration(
+          labelText: 'Name',
+          hintText: 'Enter Name',
+          border: OutlineInputBorder(),
+          prefixIcon: Icon(
+            Icons.account_box_rounded,
+            size: 30,
+          ),
+        ),
+        textInputAction: TextInputAction.next,
+      );
+  Widget buildEmail() => TextField(
+        controller: _emailController,
+        decoration: InputDecoration(
+          labelText: 'Email',
+          hintText: 'Enter Email Address',
+          border: OutlineInputBorder(),
+          prefixIcon: Icon(
+            Icons.mail_rounded,
+            size: 30,
+          ),
+        ),
+        keyboardType: TextInputType.emailAddress,
+        textInputAction: TextInputAction.next,
+      );
+  Widget buildAddress() => TextField(
+        controller: _addressController,
+        decoration: InputDecoration(
+          labelText: 'Address',
+          hintText: 'Enter Address',
+          border: OutlineInputBorder(),
+          prefixIcon: Icon(
+            Icons.edit_location_outlined,
+            size: 30,
+          ),
+        ),
+        keyboardType: TextInputType.multiline,
+        textInputAction: TextInputAction.next,
+        maxLines: null,
+      );
+  Widget builNotes() => TextField(
+        controller: _notesController,
+        decoration: InputDecoration(
+          labelText: 'Note',
+          hintText: 'Add Note',
+          border: OutlineInputBorder(),
+          prefixIcon: Icon(
+            Icons.note_alt_rounded,
+            size: 30,
+          ),
+        ),
+        keyboardType: TextInputType.multiline,
+        textInputAction: TextInputAction.next,
+        maxLines: 3,
+      );
 }
