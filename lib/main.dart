@@ -24,8 +24,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: TabScreen(),
+        // home: TabScreen(),
         routes: {
+          '/': (ctx) => TabScreen(),
           AddContactScreen.routeName: (ctx) => AddContactScreen(),
           ContactDetailScreen.routeName: (ctx) => ContactDetailScreen(),
         },

@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/contacts_provider.dart';
 import '../widgets/imgae_input.dart';
+// import './tabs_screen.dart';
 
 class AddContactScreen extends StatefulWidget {
   const AddContactScreen({Key? key}) : super(key: key);
@@ -24,6 +25,8 @@ class _AddContactScreenState extends State<AddContactScreen> {
   final _emailController = TextEditingController();
   final _addressController = TextEditingController();
   final _notesController = TextEditingController();
+  final _phoneController = TextEditingController();
+  final _birthdayController = TextEditingController();
   var _pickedImage = null;
 
   void _selectImage(File pickedImage) {
@@ -41,7 +44,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
   }
 
   void _saveContact() async {
-    if (_nameController.text.isEmpty) {
+    if (_nameController.text.isEmpty || _phoneController.text.isEmpty) {
       // can add showDialog
       return;
     }
@@ -52,17 +55,21 @@ class _AddContactScreenState extends State<AddContactScreen> {
       Provider.of<ContactsProvider>(context, listen: false).addContact(
         _nameController.text,
         backupImage,
+        _phoneController.text,
         _emailController.text,
         _addressController.text,
+        _birthdayController.text,
         _notesController.text,
       );
-      Navigator.of(context).pop();
+      Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
     } else {
       Provider.of<ContactsProvider>(context, listen: false).addContact(
         _nameController.text,
         _pickedImage,
+        _phoneController.text,
         _emailController.text,
         _addressController.text,
+        _birthdayController.text,
         _notesController.text,
       );
       Navigator.of(context).pop();
@@ -92,6 +99,10 @@ class _AddContactScreenState extends State<AddContactScreen> {
                     SizedBox(
                       height: 10,
                     ),
+                    buildPhone(),
+                    SizedBox(
+                      height: 10,
+                    ),
                     buildEmail(),
                     SizedBox(
                       height: 10,
@@ -100,7 +111,14 @@ class _AddContactScreenState extends State<AddContactScreen> {
                     SizedBox(
                       height: 10,
                     ),
+                    buildBirthday(),
+                    SizedBox(
+                      height: 10,
+                    ),
                     builNotes(),
+                    SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),
@@ -155,7 +173,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
           ),
         ),
         keyboardType: TextInputType.multiline,
-        textInputAction: TextInputAction.next,
+        textInputAction: TextInputAction.done,
         maxLines: null,
       );
   Widget builNotes() => TextField(
@@ -172,5 +190,33 @@ class _AddContactScreenState extends State<AddContactScreen> {
         keyboardType: TextInputType.multiline,
         textInputAction: TextInputAction.next,
         maxLines: 3,
+      );
+  Widget buildPhone() => TextField(
+        controller: _phoneController,
+        decoration: InputDecoration(
+          labelText: 'Phone',
+          hintText: 'Enter 11 digit phone number',
+          border: OutlineInputBorder(),
+          prefixIcon: Icon(
+            Icons.phone_android_rounded,
+            size: 30,
+          ),
+        ),
+        keyboardType: TextInputType.phone,
+        textInputAction: TextInputAction.next,
+      );
+  Widget buildBirthday() => TextField(
+        controller: _birthdayController,
+        decoration: InputDecoration(
+          labelText: 'BD',
+          hintText: 'Enter BD',
+          border: OutlineInputBorder(),
+          prefixIcon: Icon(
+            Icons.calendar_month_rounded,
+            size: 30,
+          ),
+        ),
+        // keyboardType: TextInputType.text,
+        textInputAction: TextInputAction.done,
       );
 }

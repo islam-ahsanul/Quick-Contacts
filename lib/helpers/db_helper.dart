@@ -7,7 +7,7 @@ class DBHelper {
     return sql.openDatabase(path.join(dbPath, 'contacts.db'),
         onCreate: (db, version) {
       return db.execute(
-          'CREATE TABLE user_contacts(id TEXT PRIMARY KEY, name TEXT, image TEXT, email TEXT, address TEXT, note TEXT)');
+          'CREATE TABLE user_contacts(id TEXT PRIMARY KEY, name TEXT, image TEXT, phone TEXT, email TEXT, address TEXT, birthday TEXT, note TEXT)');
     }, version: 1);
   }
 
@@ -16,7 +16,7 @@ class DBHelper {
     db.insert(
       table,
       data,
-      conflictAlgorithm: sql.ConflictAlgorithm.replace,
+      conflictAlgorithm: sql.ConflictAlgorithm.fail,
     );
   }
 

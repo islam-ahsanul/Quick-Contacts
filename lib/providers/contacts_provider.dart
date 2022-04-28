@@ -17,30 +17,38 @@ class ContactsProvider with ChangeNotifier {
   void addContact(
     String pickedName,
     File pickedImage,
+    String pickedPhone,
     String pickedEmail,
     String pickedAddress,
+    String pickedBirthday,
     String pickedNote,
   ) {
     final newContact = Contact(
-      id: DateTime.now().toString(),
+      id: pickedPhone,
       image: pickedImage,
       name: pickedName,
-      // phone: 017,
+      phone: pickedPhone,
       email: pickedEmail,
       address: pickedAddress,
+      birthday: pickedBirthday,
       note: pickedNote,
-      // birthday:
     );
-    _items.add(newContact);
     notifyListeners();
-    DBHelper.insert('user_contacts', {
-      'id': newContact.id,
-      'name': newContact.name,
-      'image': newContact.image.path,
-      'email': newContact.email,
-      'address': newContact.address,
-      'note': newContact.note,
-    });
+    _items.add(newContact);
+    DBHelper.insert(
+      'user_contacts',
+      {
+        'id': newContact.id,
+        'name': newContact.name,
+        'image': newContact.image.path,
+        'phone': newContact.phone,
+        'email': newContact.email,
+        'address': newContact.address,
+        'birthday': newContact.birthday,
+        'note': newContact.note,
+      },
+    );
+    notifyListeners();
   }
 
   Future<void> fetchAndSetContacts() async {
@@ -50,11 +58,11 @@ class ContactsProvider with ChangeNotifier {
           (item) => Contact(
             id: item['id'],
             name: item['name'],
-            image: File(
-              item['image'],
-            ),
+            image: File(item['image']),
+            phone: item['phone'],
             email: item['email'],
             address: item['address'],
+            birthday: item['birthday'],
             note: item['note'],
           ),
         )

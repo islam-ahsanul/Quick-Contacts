@@ -15,7 +15,7 @@ class ContactDetailScreen extends StatelessWidget {
         Provider.of<ContactsProvider>(context, listen: false).findById(id!);
     return Scaffold(
       appBar: AppBar(
-        title: Text(selectedContact.name),
+        title: Text(selectedContact.id),
       ),
     );
   }
