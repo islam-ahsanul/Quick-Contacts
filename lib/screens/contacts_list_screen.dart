@@ -11,17 +11,28 @@ class ContactListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Contacts Screen'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(AddContactScreen.routeName);
-            },
-            icon: Icon(Icons.add),
-          ),
-        ],
+      floatingActionButton: FloatingActionButton.extended(
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        onPressed: () {
+          Navigator.of(context).pushNamed(AddContactScreen.routeName);
+        },
+        icon: Icon(Icons.add),
+        label: const Text('Add new contact'),
       ),
+      // appBar: AppBar(
+      //   title: Text('Contacts Screen'),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {
+      //         Navigator.of(context).pushNamed(AddContactScreen.routeName);
+      //       },
+      //       icon: Icon(Icons.add),
+      //     ),
+      //   ],
+      // ),
       body: FutureBuilder(
         future: Provider.of<ContactsProvider>(context, listen: false)
             .fetchAndSetContacts(),
