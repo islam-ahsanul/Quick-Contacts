@@ -14,13 +14,12 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
       value: ContactsProvider(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Family Contact Book',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
