@@ -18,7 +18,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
   Widget build(BuildContext context) {
     final id = ModalRoute.of(context)?.settings.arguments.toString();
     final selectedContact =
-        Provider.of<ContactsProvider>(context, listen: false).findById(id!);
+        Provider.of<ContactsProvider>(context, listen: true).findById(id!);
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -28,7 +28,12 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             collapsedHeight: 130,
             actions: [
               IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.star)),
+              IconButton(
+                onPressed: () {},
+                icon: selectedContact.isFavorite == 0
+                    ? Icon(Icons.star_border_outlined)
+                    : Icon(Icons.star),
+              ),
             ],
             expandedHeight: 350,
             pinned: true,
