@@ -14,8 +14,46 @@ class ContactDetailScreen extends StatelessWidget {
     final selectedContact =
         Provider.of<ContactsProvider>(context, listen: false).findById(id!);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(selectedContact.id),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            // forceElevated: true,
+            elevation: 40,
+            collapsedHeight: 130,
+            actions: [
+              IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
+              IconButton(onPressed: () {}, icon: Icon(Icons.star)),
+            ],
+            expandedHeight: 350,
+            pinned: true,
+            // floating: true,
+            flexibleSpace: FlexibleSpaceBar(
+              stretchModes: [
+                StretchMode.zoomBackground,
+                StretchMode.blurBackground,
+              ],
+              centerTitle: true,
+              title: Text(selectedContact.name),
+              background: Image.file(
+                selectedContact.image,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                SizedBox(
+                  height: 500,
+                ),
+                Text('Hello'),
+                SizedBox(
+                  height: 500,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
