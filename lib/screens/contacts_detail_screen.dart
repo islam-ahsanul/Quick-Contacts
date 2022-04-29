@@ -4,11 +4,16 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
 import '../providers/contacts_provider.dart';
 
-class ContactDetailScreen extends StatelessWidget {
+class ContactDetailScreen extends StatefulWidget {
   const ContactDetailScreen({Key? key}) : super(key: key);
 
   static const routeName = '/contact-detail';
 
+  @override
+  State<ContactDetailScreen> createState() => _ContactDetailScreenState();
+}
+
+class _ContactDetailScreenState extends State<ContactDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final id = ModalRoute.of(context)?.settings.arguments.toString();
@@ -83,6 +88,7 @@ class ContactDetailScreen extends StatelessWidget {
                     selectedContact.address,
                     selectedContact.birthday,
                     selectedContact.note,
+                    selectedContact.isFavorite,
                   ),
                   SizedBox(
                     height: 200,
@@ -156,8 +162,8 @@ class ContactDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget detailsColumn(
-      String phone, String email, String address, String bd, String note) {
+  Widget detailsColumn(String phone, String email, String address, String bd,
+      String note, int isFav) {
     return Column(
       children: [
         Divider(
@@ -213,6 +219,20 @@ class ContactDetailScreen extends StatelessWidget {
             children: [
               Icon(Icons.cake_rounded),
               Text(bd),
+            ],
+          ),
+        ),
+        Divider(
+          thickness: 5.0,
+        ),
+        Container(
+          height: 50,
+          width: double.infinity,
+          padding: EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Icon(Icons.cake_rounded),
+              Text('$isFav'),
             ],
           ),
         ),

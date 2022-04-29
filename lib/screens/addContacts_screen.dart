@@ -60,6 +60,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
         _addressController.text,
         _birthdayController.text,
         _notesController.text,
+        0,
       );
       Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
     } else {
@@ -71,6 +72,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
         _addressController.text,
         _birthdayController.text,
         _notesController.text,
+        0,
       );
       Navigator.of(context).pop();
     }

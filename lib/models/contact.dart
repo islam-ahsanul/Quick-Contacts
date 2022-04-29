@@ -9,6 +9,7 @@ class Contact {
   final String address;
   final String birthday;
   final String note;
+  final int isFavorite;
 
   Contact({
     required this.id,
@@ -19,5 +20,6 @@ class Contact {
     required this.address,
     required this.birthday,
     required this.note,
+    required this.isFavorite,
   });
 }

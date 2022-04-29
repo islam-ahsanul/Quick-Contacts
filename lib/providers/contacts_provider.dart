@@ -22,6 +22,7 @@ class ContactsProvider with ChangeNotifier {
     String pickedAddress,
     String pickedBirthday,
     String pickedNote,
+    int pickedFavorite,
   ) {
     final newContact = Contact(
       id: pickedPhone,
@@ -32,6 +33,7 @@ class ContactsProvider with ChangeNotifier {
       address: pickedAddress,
       birthday: pickedBirthday,
       note: pickedNote,
+      isFavorite: pickedFavorite,
     );
     notifyListeners();
     _items.add(newContact);
@@ -46,6 +48,7 @@ class ContactsProvider with ChangeNotifier {
         'address': newContact.address,
         'birthday': newContact.birthday,
         'note': newContact.note,
+        'isFavorite': newContact.isFavorite,
       },
     );
     notifyListeners();
@@ -64,6 +67,7 @@ class ContactsProvider with ChangeNotifier {
             address: item['address'],
             birthday: item['birthday'],
             note: item['note'],
+            isFavorite: item['isFavorite'],
           ),
         )
         .toList();
