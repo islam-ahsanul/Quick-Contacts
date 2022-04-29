@@ -55,7 +55,7 @@ class ContactListScreen extends StatelessWidget {
                                   sentId: contactsProvider.items[i].id,
                                   sentImage: contactsProvider.items[i].image,
                                   sentName: contactsProvider.items[i].name,
-                                  sentPhone: contactsProvider.items[i].name,
+                                  sentPhone: contactsProvider.items[i].phone,
                                 ),
                                 // ListTile(
                                 //   leading: CircleAvatar(
