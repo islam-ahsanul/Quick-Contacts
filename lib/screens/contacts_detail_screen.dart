@@ -6,6 +6,8 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
 import '../providers/contacts_provider.dart';
 
+import './edit_screen.dart';
+
 class ContactDetailScreen extends StatefulWidget {
   const ContactDetailScreen({Key? key}) : super(key: key);
 
@@ -54,7 +56,12 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             elevation: 40,
             collapsedHeight: 130,
             actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
+              IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(EditScreen.routeName,
+                        arguments: selectedContact.id);
+                  },
+                  icon: Icon(Icons.edit)),
               IconButton(
                 onPressed: () {
                   if (selectedContact.isFavorite == 0) {
