@@ -21,7 +21,7 @@ class ContactListScreen extends StatelessWidget {
           Navigator.of(context).pushNamed(AddContactScreen.routeName);
         },
         icon: Icon(Icons.add),
-        label: const Text('Add new contact'),
+        label: const Text('Add Contact'),
       ),
       // appBar: AppBar(
       //   title: Text('Contacts Screen'),

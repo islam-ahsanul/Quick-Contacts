@@ -75,18 +75,17 @@ class ContactDetailScreen extends StatelessWidget {
               delegate: SliverChildListDelegate(
                 [
                   SizedBox(
-                    height: 500,
+                    height: 100,
                   ),
-                  Text('Hello'),
-                  SizedBox(
-                    height: 500,
+                  detailsColumn(
+                    selectedContact.phone,
+                    selectedContact.email,
+                    selectedContact.address,
+                    selectedContact.birthday,
+                    selectedContact.note,
                   ),
                   SizedBox(
-                    height: 500,
-                  ),
-                  Text('Bissho'),
-                  SizedBox(
-                    height: 500,
+                    height: 200,
                   ),
                 ],
               ),
@@ -154,6 +153,73 @@ class ContactDetailScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget detailsColumn(
+      String phone, String email, String address, String bd, String note) {
+    return Column(
+      children: [
+        Divider(
+          thickness: 5.0,
+        ),
+        Container(
+          height: 50,
+          width: double.infinity,
+          padding: EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Icon(Icons.phone_android_rounded),
+              Text(phone),
+            ],
+          ),
+        ),
+        Divider(
+          thickness: 5.0,
+        ),
+        Container(
+          height: 50,
+          width: double.infinity,
+          padding: EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Icon(Icons.mail_outline_rounded),
+              Text(email),
+            ],
+          ),
+        ),
+        Divider(
+          thickness: 5.0,
+        ),
+        Container(
+          height: 50,
+          width: double.infinity,
+          padding: EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Icon(Icons.location_on),
+              Text(address),
+            ],
+          ),
+        ),
+        Divider(
+          thickness: 5.0,
+        ),
+        Container(
+          height: 50,
+          width: double.infinity,
+          padding: EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Icon(Icons.cake_rounded),
+              Text(bd),
+            ],
+          ),
+        ),
+        Divider(
+          thickness: 5.0,
+        ),
+      ],
     );
   }
 }
