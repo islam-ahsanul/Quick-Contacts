@@ -5,9 +5,14 @@ import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart' as syspaths;
 
 class ImgaeInput extends StatefulWidget {
-  const ImgaeInput({Key? key, required this.onSelectImage}) : super(key: key);
+  ImgaeInput({
+    Key? key,
+    required this.onSelectImage,
+    required this.fromEdit,
+  }) : super(key: key);
 
   final Function onSelectImage;
+  var fromEdit;
 
   @override
   State<ImgaeInput> createState() => _ImgaeInputState();
@@ -62,14 +67,22 @@ class _ImgaeInputState extends State<ImgaeInput> {
                       width: double.infinity,
                     ),
                   )
-                : ClipOval(
-                    child: Image.asset(
-                      'assets/images/cont_icon.png',
-                      fit: BoxFit.cover,
-                      height: 100,
-                      width: 100,
-                    ),
-                  ),
+                : widget.fromEdit != null
+                    ? ClipOval(
+                        child: Image.file(
+                          widget.fromEdit,
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        ),
+                      )
+                    : ClipOval(
+                        child: Image.asset(
+                          'assets/images/cont_icon.png',
+                          fit: BoxFit.cover,
+                          height: 100,
+                          width: 100,
+                        ),
+                      ),
             alignment: Alignment.center,
           ),
         ),

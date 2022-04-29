@@ -85,7 +85,9 @@ class _EditScreenState extends State<EditScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ImgaeInput(onSelectImage: _selectImage),
+                    ImgaeInput(
+                        onSelectImage: _selectImage,
+                        fromEdit: selectedContact.image),
                     SizedBox(
                       height: 10,
                     ),

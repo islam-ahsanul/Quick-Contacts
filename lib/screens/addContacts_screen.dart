@@ -93,7 +93,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ImgaeInput(onSelectImage: _selectImage),
+                    ImgaeInput(onSelectImage: _selectImage, fromEdit: null),
                     SizedBox(
                       height: 10,
                     ),
