@@ -54,6 +54,34 @@ class ContactsProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void updateContact(
+    String pickedId,
+    String pickedName,
+    File pickedImage,
+    String pickedPhone,
+    String pickedEmail,
+    String pickedAddress,
+    String pickedBirthday,
+    String pickedNote,
+    int pickedFavorite,
+  ) {
+    DBHelper.update(
+      'user_contacts',
+      {
+        'id': pickedId,
+        'name': pickedName,
+        'image': pickedImage.path,
+        'phone': pickedPhone,
+        'email': pickedEmail,
+        'address': pickedAddress,
+        'birthday': pickedBirthday,
+        'note': pickedNote,
+        'isFavorite': pickedFavorite,
+      },
+    );
+    notifyListeners();
+  }
+
   Future<void> fetchAndSetContacts() async {
     final dataList = await DBHelper.getData('user_contacts');
     _items = dataList

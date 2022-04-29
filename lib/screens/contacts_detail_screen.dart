@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
@@ -14,11 +16,36 @@ class ContactDetailScreen extends StatefulWidget {
 }
 
 class _ContactDetailScreenState extends State<ContactDetailScreen> {
+  void _updateContact(
+    String id,
+    String name,
+    File img,
+    String phone,
+    String email,
+    String address,
+    String bd,
+    String note,
+    int isFav,
+  ) async {
+    Provider.of<ContactsProvider>(context, listen: false).updateContact(
+      id,
+      name,
+      img,
+      phone,
+      email,
+      address,
+      bd,
+      note,
+      isFav,
+    );
+    Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     final id = ModalRoute.of(context)?.settings.arguments.toString();
     final selectedContact =
-        Provider.of<ContactsProvider>(context, listen: true).findById(id!);
+        Provider.of<ContactsProvider>(context).findById(id!);
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -29,7 +56,31 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             actions: [
               IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (selectedContact.isFavorite == 0) {
+                    _updateContact(
+                        selectedContact.id,
+                        selectedContact.name,
+                        selectedContact.image,
+                        selectedContact.phone,
+                        selectedContact.email,
+                        selectedContact.address,
+                        selectedContact.birthday,
+                        selectedContact.note,
+                        1);
+                  } else {
+                    _updateContact(
+                        selectedContact.id,
+                        selectedContact.name,
+                        selectedContact.image,
+                        selectedContact.phone,
+                        selectedContact.email,
+                        selectedContact.address,
+                        selectedContact.birthday,
+                        selectedContact.note,
+                        0);
+                  }
+                },
                 icon: selectedContact.isFavorite == 0
                     ? Icon(Icons.star_border_outlined)
                     : Icon(Icons.star),

@@ -74,7 +74,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
         _notesController.text,
         0,
       );
-      Navigator.of(context).pop();
+      Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
     }
   }
 
