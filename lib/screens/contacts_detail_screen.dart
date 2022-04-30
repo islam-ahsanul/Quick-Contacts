@@ -18,6 +18,11 @@ class ContactDetailScreen extends StatefulWidget {
 }
 
 class _ContactDetailScreenState extends State<ContactDetailScreen> {
+  void _deleteContact(String id) async {
+    Provider.of<ContactsProvider>(context, listen: false).deleteContact(id);
+    Navigator.of(context).pop();
+  }
+
   void _updateContact(
     String id,
     String name,
@@ -91,6 +96,12 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                 icon: selectedContact.isFavorite == 0
                     ? Icon(Icons.star_border_outlined)
                     : Icon(Icons.star),
+              ),
+              IconButton(
+                onPressed: () {
+                  _deleteContact(selectedContact.id);
+                },
+                icon: Icon(Icons.delete),
               ),
             ],
             expandedHeight: 350,

@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'package:collection/collection.dart';
+
 import '../models/contact.dart';
 import '../helpers/db_helper.dart';
 
@@ -78,6 +80,14 @@ class ContactsProvider with ChangeNotifier {
         'note': pickedNote,
         'isFavorite': pickedFavorite,
       },
+    );
+    notifyListeners();
+  }
+
+  void deleteContact(String pickedId) {
+    DBHelper.delete(
+      'user_contacts',
+      pickedId,
     );
     notifyListeners();
   }
