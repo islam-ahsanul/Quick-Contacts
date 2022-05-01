@@ -54,6 +54,7 @@ class CardListItem extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: Text(
                       sentName,
+                      textAlign: TextAlign.right,
                       style: TextStyle(
                         fontSize: 26,
                         color: Colors.white,

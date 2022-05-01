@@ -69,18 +69,22 @@ class FavoriteScreen extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        TextButton.icon(
-                                          onPressed: () {},
-                                          icon: Icon(Icons.call),
-                                          label: Text('Call'),
+                                        Expanded(
+                                          child: TextButton.icon(
+                                            onPressed: () {},
+                                            icon: Icon(Icons.call),
+                                            label: Text('Call'),
+                                          ),
                                         ),
                                         VerticalDivider(
                                           thickness: 5,
                                         ),
-                                        TextButton.icon(
-                                          onPressed: () {},
-                                          icon: Icon(Icons.sms_rounded),
-                                          label: Text('Text'),
+                                        Expanded(
+                                          child: TextButton.icon(
+                                            onPressed: () {},
+                                            icon: Icon(Icons.sms_rounded),
+                                            label: Text('Text'),
+                                          ),
                                         )
                                       ],
                                     ),

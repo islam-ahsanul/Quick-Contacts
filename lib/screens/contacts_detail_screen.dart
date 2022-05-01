@@ -58,50 +58,90 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
         slivers: [
           SliverAppBar(
             // forceElevated: true,
-            elevation: 40,
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black,
+            // shape: RoundedRectangleBorder(
+            //   borderRadius: BorderRadius.vertical(
+            //     bottom: Radius.circular(20),
+            //   ),
+            // ),
+
+            elevation: 0,
+            // shadowColor: Colors.white,
             collapsedHeight: 130,
             actions: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(EditScreen.routeName,
-                        arguments: selectedContact.id);
-                  },
-                  icon: Icon(Icons.edit)),
-              IconButton(
-                onPressed: () {
-                  if (selectedContact.isFavorite == 0) {
-                    _updateContact(
-                        selectedContact.id,
-                        selectedContact.name,
-                        selectedContact.image,
-                        selectedContact.phone,
-                        selectedContact.email,
-                        selectedContact.address,
-                        selectedContact.birthday,
-                        selectedContact.note,
-                        1);
-                  } else {
-                    _updateContact(
-                        selectedContact.id,
-                        selectedContact.name,
-                        selectedContact.image,
-                        selectedContact.phone,
-                        selectedContact.email,
-                        selectedContact.address,
-                        selectedContact.birthday,
-                        selectedContact.note,
-                        0);
-                  }
-                },
-                icon: selectedContact.isFavorite == 0
-                    ? Icon(Icons.star_border_outlined)
-                    : Icon(Icons.star),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white30,
+                  child: IconButton(
+                    enableFeedback: true,
+                    splashColor: Colors.red,
+                    color: Colors.black,
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(EditScreen.routeName,
+                          arguments: selectedContact.id);
+                    },
+                    icon: Icon(Icons.edit),
+                  ),
+                ),
               ),
-              IconButton(
-                onPressed: () {
-                  _deleteContact(selectedContact.id);
-                },
-                icon: Icon(Icons.delete),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white30,
+                  child: IconButton(
+                    enableFeedback: true,
+                    splashColor: Colors.red,
+                    color: Colors.black,
+                    onPressed: () {
+                      if (selectedContact.isFavorite == 0) {
+                        _updateContact(
+                            selectedContact.id,
+                            selectedContact.name,
+                            selectedContact.image,
+                            selectedContact.phone,
+                            selectedContact.email,
+                            selectedContact.address,
+                            selectedContact.birthday,
+                            selectedContact.note,
+                            1);
+                      } else {
+                        _updateContact(
+                            selectedContact.id,
+                            selectedContact.name,
+                            selectedContact.image,
+                            selectedContact.phone,
+                            selectedContact.email,
+                            selectedContact.address,
+                            selectedContact.birthday,
+                            selectedContact.note,
+                            0);
+                      }
+                    },
+                    icon: selectedContact.isFavorite == 0
+                        ? Icon(Icons.star_border_outlined)
+                        : Icon(Icons.star),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white30,
+                  child: IconButton(
+                    enableFeedback: true,
+                    splashColor: Colors.red,
+                    color: Colors.black,
+                    onPressed: () {
+                      _deleteContact(selectedContact.id);
+                    },
+                    icon: Icon(Icons.delete),
+                  ),
+                ),
               ),
             ],
             expandedHeight: 350,
@@ -113,7 +153,25 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                 StretchMode.blurBackground,
               ],
               centerTitle: true,
-              title: Text(selectedContact.name),
+              title: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.white30,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 3.5, 8.0, 3.5),
+                  child: Text(
+                    selectedContact.name,
+                    textAlign: TextAlign.center,
+                    softWrap: true,
+                    style: TextStyle(
+                      // backgroundColor: Colors.white30,
+                      fontFamily: 'Comfortaa',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
               background: Image.file(
                 selectedContact.image,
                 fit: BoxFit.cover,
@@ -137,6 +195,8 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             header: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Card(
+                elevation: 15,
+                shadowColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -153,9 +213,9 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             sliver: SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  SizedBox(
-                    height: 100,
-                  ),
+                  // SizedBox(
+                  //   height: 100,
+                  // ),
                   detailsColumn(
                     selectedContact.phone,
                     selectedContact.email,
@@ -165,7 +225,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                     selectedContact.isFavorite,
                   ),
                   SizedBox(
-                    height: 200,
+                    height: 500,
                   ),
                 ],
               ),
@@ -178,6 +238,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
 
   Widget callButton() {
     return InkWell(
+      overlayColor: MaterialStateProperty.all(Color.fromARGB(255, 39, 190, 44)),
       borderRadius: BorderRadius.circular(10),
       enableFeedback: true,
       onTap: () {},
@@ -185,11 +246,20 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 12, 0, 4),
-            child: Icon(Icons.phone_rounded),
+            child: Icon(
+              Icons.phone_rounded,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 4, 0, 12),
-            child: Text('Call'),
+            child: Text(
+              'Call',
+              style: TextStyle(
+                fontSize: 15,
+                fontFamily: 'MPLUSRounded',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ],
       ),
@@ -198,6 +268,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
 
   Widget smsButton() {
     return InkWell(
+      overlayColor: MaterialStateProperty.all(Color.fromARGB(255, 18, 41, 221)),
       borderRadius: BorderRadius.circular(10),
       enableFeedback: true,
       onTap: () {},
@@ -205,11 +276,20 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 12, 0, 4),
-            child: Icon(Icons.message_rounded),
+            child: Icon(
+              Icons.sms_rounded,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 4, 0, 12),
-            child: Text('Text'),
+            child: Text(
+              'Text',
+              style: TextStyle(
+                fontSize: 15,
+                fontFamily: 'MPLUSRounded',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ],
       ),
@@ -218,18 +298,28 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
 
   Widget emailButton() {
     return InkWell(
+      overlayColor: MaterialStateProperty.all(Colors.yellow),
       borderRadius: BorderRadius.circular(10),
-      enableFeedback: true,
+      // enableFeedback: true,
       onTap: () {},
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 12, 0, 4),
-            child: Icon(Icons.email_rounded),
+            child: Icon(
+              Icons.email_rounded,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 4, 0, 12),
-            child: Text('Email'),
+            child: Text(
+              'Email',
+              style: TextStyle(
+                fontSize: 15,
+                fontFamily: 'MPLUSRounded',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ],
       ),
@@ -240,17 +330,36 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
       String note, int isFav) {
     return Column(
       children: [
+        ListTile(
+          leading: Icon(Icons.phone_android_rounded),
+          title: Text(phone),
+        ),
         Divider(
-          thickness: 5.0,
+          thickness: 1.0,
         ),
         Container(
-          height: 50,
+          // height: 50,
           width: double.infinity,
           padding: EdgeInsets.all(8.0),
           child: Row(
             children: [
-              Icon(Icons.phone_android_rounded),
-              Text(phone),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  Icons.phone_android_rounded,
+                  size: 30,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  phone,
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontFamily: 'Roboto',
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -22,7 +22,15 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Family Contact Book',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          fontFamily: 'SourceSansPro',
+          // primarySwatch: Colors.red,
+          primaryColor: Colors.white,
+          // accentColor: Colors.amber,
+          canvasColor: Colors.white,
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            foregroundColor: Colors.red,
+            backgroundColor: Colors.white,
+          ),
         ),
         // home: TabScreen(),
         routes: {
