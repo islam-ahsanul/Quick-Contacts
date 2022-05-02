@@ -82,7 +82,7 @@ class CardListItem extends StatelessWidget {
                             MaterialStateProperty.all(TextStyle(fontSize: 18)),
                       ),
                       icon: Icon(
-                        Icons.info_outline_rounded,
+                        Icons.info,
                       ),
                       onPressed: () {
                         Navigator.of(context).pushNamed(
@@ -91,6 +91,24 @@ class CardListItem extends StatelessWidget {
                       },
                       label: Text(
                         'Details',
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: TextButton.icon(
+                      style: ButtonStyle(
+                        padding: MaterialStateProperty.all(
+                            EdgeInsets.symmetric(vertical: 15.0)),
+                        enableFeedback: true,
+                        textStyle:
+                            MaterialStateProperty.all(TextStyle(fontSize: 18)),
+                      ),
+                      icon: Icon(
+                        Icons.sms_rounded,
+                      ),
+                      onPressed: () {},
+                      label: Text(
+                        'Text',
                       ),
                     ),
                   ),
