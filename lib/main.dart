@@ -23,12 +23,12 @@ class MyApp extends StatelessWidget {
         title: 'Family Contact Book',
         theme: ThemeData(
           fontFamily: 'SourceSansPro',
-          // primarySwatch: Colors.red,
+          primarySwatch: Colors.indigo,
           primaryColor: Colors.white,
           // accentColor: Colors.amber,
           canvasColor: Colors.white,
           floatingActionButtonTheme: FloatingActionButtonThemeData(
-            foregroundColor: Colors.red,
+            foregroundColor: Color.fromARGB(255, 6, 18, 82),
             backgroundColor: Colors.white,
           ),
         ),

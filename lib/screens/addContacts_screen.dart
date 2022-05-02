@@ -83,6 +83,19 @@ class _AddContactScreenState extends State<AddContactScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Contact'),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+              colors: [
+                Color.fromARGB(255, 6, 18, 82),
+                Color.fromARGB(255, 10, 95, 191).withOpacity(0.9),
+              ],
+            ),
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -130,6 +143,11 @@ class _AddContactScreenState extends State<AddContactScreen> {
             onPressed: _saveContact,
             icon: Icon(Icons.add),
             label: Text('Add contact'),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                Color.fromARGB(255, 6, 18, 82),
+              ),
+            ),
           ),
         ],
       ),
@@ -141,7 +159,9 @@ class _AddContactScreenState extends State<AddContactScreen> {
         decoration: InputDecoration(
           labelText: 'Name',
           hintText: 'Enter Name',
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           prefixIcon: Icon(
             Icons.account_box_rounded,
             size: 30,
@@ -154,7 +174,9 @@ class _AddContactScreenState extends State<AddContactScreen> {
         decoration: InputDecoration(
           labelText: 'Email',
           hintText: 'Enter Email Address',
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           prefixIcon: Icon(
             Icons.mail_rounded,
             size: 30,
@@ -168,7 +190,9 @@ class _AddContactScreenState extends State<AddContactScreen> {
         decoration: InputDecoration(
           labelText: 'Address',
           hintText: 'Enter Address',
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           prefixIcon: Icon(
             Icons.edit_location_outlined,
             size: 30,
@@ -183,7 +207,9 @@ class _AddContactScreenState extends State<AddContactScreen> {
         decoration: InputDecoration(
           labelText: 'Note',
           hintText: 'Add Note',
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           prefixIcon: Icon(
             Icons.note_alt_rounded,
             size: 30,
@@ -198,7 +224,9 @@ class _AddContactScreenState extends State<AddContactScreen> {
         decoration: InputDecoration(
           labelText: 'Phone',
           hintText: 'Enter 11 digit phone number',
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           prefixIcon: Icon(
             Icons.phone_android_rounded,
             size: 30,
@@ -212,7 +240,9 @@ class _AddContactScreenState extends State<AddContactScreen> {
         decoration: InputDecoration(
           labelText: 'BD',
           hintText: 'Enter BD',
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           prefixIcon: Icon(
             Icons.calendar_month_rounded,
             size: 30,
