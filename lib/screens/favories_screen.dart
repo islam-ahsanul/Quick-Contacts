@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'dart:ui' as ui;
 
 import '../providers/contacts_provider.dart';
 
@@ -63,27 +64,60 @@ class FavoriteScreen extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(contactsProvider.items[i].name),
+                                  Text(
+                                    contactsProvider.items[i].name,
+                                    softWrap: true,
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                    ),
+                                  ),
                                   IntrinsicHeight(
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
                                         Expanded(
-                                          child: TextButton.icon(
-                                            onPressed: () {},
-                                            icon: Icon(Icons.call),
-                                            label: Text('Call'),
+                                          child: ShaderMask(
+                                            blendMode: BlendMode.srcIn,
+                                            shaderCallback: (Rect bounds) {
+                                              return ui.Gradient.linear(
+                                                Offset(24.0, 24.0),
+                                                Offset(15.0, 24.0),
+                                                [
+                                                  Colors.greenAccent,
+                                                  Colors.green,
+                                                ],
+                                              );
+                                            },
+                                            child: TextButton.icon(
+                                              onPressed: () {},
+                                              icon: Icon(Icons.call),
+                                              label: Text('Call'),
+                                            ),
                                           ),
                                         ),
                                         VerticalDivider(
                                           thickness: 5,
                                         ),
                                         Expanded(
-                                          child: TextButton.icon(
-                                            onPressed: () {},
-                                            icon: Icon(Icons.sms_rounded),
-                                            label: Text('Text'),
+                                          child: ShaderMask(
+                                            blendMode: BlendMode.srcIn,
+                                            shaderCallback: (Rect bounds) {
+                                              return ui.Gradient.linear(
+                                                Offset(24.0, 4.0),
+                                                Offset(18.0, 24.0),
+                                                [
+                                                  Color.fromARGB(
+                                                      255, 5, 26, 130),
+                                                  Colors.cyan,
+                                                ],
+                                              );
+                                            },
+                                            child: TextButton.icon(
+                                              onPressed: () {},
+                                              icon: Icon(Icons.sms_rounded),
+                                              label: Text('Text'),
+                                            ),
                                           ),
                                         )
                                       ],
