@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_scrolling_fab_animated/flutter_scrolling_fab_animated.dart';
 
 import './addContacts_screen.dart';
 import '../providers/contacts_provider.dart';
@@ -7,22 +8,48 @@ import './contacts_detail_screen.dart';
 import '../widgets/card_list_item.dart';
 
 class ContactListScreen extends StatelessWidget {
-  const ContactListScreen({Key? key}) : super(key: key);
+  ContactListScreen({Key? key}) : super(key: key);
+  ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+      // floatingActionButton: FloatingActionButton.extended(
+      //   elevation: 5,
+      //   shape: RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(10),
+      //   ),
+      //   onPressed: () {
+      //     Navigator.of(context).pushNamed(AddContactScreen.routeName);
+      //   },
+      //   icon: Icon(Icons.add),
+      //   label: const Text('Add Contact'),
+      // ),
+// -------------------------------------
+      floatingActionButton: ScrollingFabAnimated(
+        elevation: 25,
+        color: Colors.white,
+        icon: Icon(
+          Icons.add,
+          color: Color.fromARGB(255, 6, 18, 82),
         ),
-        onPressed: () {
+        text: Text(
+          'Add Contact',
+          style:
+              TextStyle(color: Color.fromARGB(255, 6, 18, 82), fontSize: 15.0),
+        ),
+        onPress: () {
           Navigator.of(context).pushNamed(AddContactScreen.routeName);
         },
-        icon: Icon(Icons.add),
-        label: const Text('Add Contact'),
+        scrollController: _scrollController,
+        animateIcon: true,
+        curve: Curves.easeOut,
+        radius: 15,
+        // inverted: true,
+        duration: Duration(milliseconds: 200),
+        width: 150,
       ),
+
       // appBar: AppBar(
       //   title: Text('Contacts Screen'),
       //   actions: [
@@ -54,6 +81,7 @@ class ContactListScreen extends StatelessWidget {
                           contactsProvider.items.length <= 0
                               ? Text('No contacts yet')
                               : ListView.builder(
+                                  controller: _scrollController,
                                   itemCount: contactsProvider.items.length,
                                   itemBuilder: (ctx, i) => CardListItem(
                                     sentId: contactsProvider.items[i].id,

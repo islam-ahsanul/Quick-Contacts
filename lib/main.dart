@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.white,
           // accentColor: Colors.amber,
           canvasColor: Colors.white,
-          floatingActionButtonTheme: FloatingActionButtonThemeData(
-            foregroundColor: Color.fromARGB(255, 6, 18, 82),
-            backgroundColor: Colors.white,
-          ),
+          // floatingActionButtonTheme: FloatingActionButtonThemeData(
+          //   foregroundColor: Color.fromARGB(255, 6, 18, 82),
+          //   backgroundColor: Colors.white,
+          // ),
         ),
         // home: TabScreen(),
         routes: {
