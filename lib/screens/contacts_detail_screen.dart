@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -341,12 +342,25 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.red, width: 1),
+              side: BorderSide(color: Colors.black12, width: 1),
               borderRadius: BorderRadius.circular(40),
             ),
-            leading: Icon(
-              Icons.phone_android_rounded,
-              size: 30,
+            leading: ShaderMask(
+              blendMode: BlendMode.srcIn,
+              shaderCallback: (Rect bounds) {
+                return ui.Gradient.linear(
+                  Offset(24.0, 4.0),
+                  Offset(10.0, 24.0),
+                  [
+                    ui.Color.fromARGB(255, 179, 255, 93),
+                    ui.Color.fromARGB(255, 43, 179, 47),
+                  ],
+                );
+              },
+              child: Icon(
+                Icons.phone_android_rounded,
+                size: 30,
+              ),
             ),
             title: Text(
               phone,
@@ -359,13 +373,27 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            enabled: true,
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.red, width: 1),
+              side: BorderSide(color: Colors.black12, width: 1),
               borderRadius: BorderRadius.circular(40),
             ),
-            leading: Icon(
-              Icons.mail_outline_rounded,
-              size: 30,
+            leading: ShaderMask(
+              blendMode: BlendMode.srcIn,
+              shaderCallback: (Rect bounds) {
+                return ui.Gradient.linear(
+                  Offset(24.0, 4.0),
+                  Offset(4.0, 24.0),
+                  [
+                    Colors.amberAccent,
+                    Colors.deepOrange,
+                  ],
+                );
+              },
+              child: Icon(
+                Icons.mail_outline_rounded,
+                size: 30,
+              ),
             ),
             title: Text(
               email,
@@ -379,12 +407,25 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.red, width: 1),
+              side: BorderSide(color: Colors.black12, width: 1),
               borderRadius: BorderRadius.circular(40),
             ),
-            leading: Icon(
-              Icons.location_on,
-              size: 30,
+            leading: ShaderMask(
+              blendMode: BlendMode.srcIn,
+              shaderCallback: (Rect bounds) {
+                return ui.Gradient.linear(
+                  Offset(24.0, 4.0),
+                  Offset(10.0, 24.0),
+                  [
+                    Colors.cyanAccent,
+                    ui.Color.fromARGB(251, 11, 7, 92),
+                  ],
+                );
+              },
+              child: Icon(
+                Icons.location_on,
+                size: 30,
+              ),
             ),
             title: Text(
               address,
@@ -398,12 +439,25 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.red, width: 1),
+              side: BorderSide(color: Colors.black12, width: 1),
               borderRadius: BorderRadius.circular(40),
             ),
-            leading: Icon(
-              Icons.cake_rounded,
-              size: 30,
+            leading: ShaderMask(
+              blendMode: BlendMode.srcIn,
+              shaderCallback: (Rect bounds) {
+                return ui.Gradient.linear(
+                  Offset(24.0, 4.0),
+                  Offset(10.0, 24.0),
+                  [
+                    Colors.white,
+                    Colors.pink,
+                  ],
+                );
+              },
+              child: Icon(
+                Icons.cake_rounded,
+                size: 30,
+              ),
             ),
             title: Text(
               bd,
@@ -438,7 +492,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: Colors.red, width: 1),
+                          border: Border.all(color: Colors.black12, width: 1),
                         ),
                         child: Text(
                           note,
