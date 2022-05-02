@@ -225,7 +225,14 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                     selectedContact.isFavorite,
                   ),
                   SizedBox(
-                    height: 500,
+                    height: 600,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text(
+                      'Swipe down to see details!',
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ],
               ),
@@ -330,97 +337,120 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
       String note, int isFav) {
     return Column(
       children: [
-        ListTile(
-          leading: Icon(Icons.phone_android_rounded),
-          title: Text(phone),
-        ),
-        Divider(
-          thickness: 1.0,
-        ),
-        Container(
-          // height: 50,
-          width: double.infinity,
-          padding: EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.phone_android_rounded,
-                  size: 30,
-                ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            shape: RoundedRectangleBorder(
+              side: BorderSide(color: Colors.red, width: 1),
+              borderRadius: BorderRadius.circular(40),
+            ),
+            leading: Icon(
+              Icons.phone_android_rounded,
+              size: 30,
+            ),
+            title: Text(
+              phone,
+              style: TextStyle(
+                fontSize: 20,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  phone,
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontFamily: 'Roboto',
-                  ),
-                ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            shape: RoundedRectangleBorder(
+              side: BorderSide(color: Colors.red, width: 1),
+              borderRadius: BorderRadius.circular(40),
+            ),
+            leading: Icon(
+              Icons.mail_outline_rounded,
+              size: 30,
+            ),
+            title: Text(
+              email,
+              style: TextStyle(
+                fontSize: 20,
               ),
-            ],
+            ),
           ),
         ),
-        Divider(
-          thickness: 5.0,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            shape: RoundedRectangleBorder(
+              side: BorderSide(color: Colors.red, width: 1),
+              borderRadius: BorderRadius.circular(40),
+            ),
+            leading: Icon(
+              Icons.location_on,
+              size: 30,
+            ),
+            title: Text(
+              address,
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            shape: RoundedRectangleBorder(
+              side: BorderSide(color: Colors.red, width: 1),
+              borderRadius: BorderRadius.circular(40),
+            ),
+            leading: Icon(
+              Icons.cake_rounded,
+              size: 30,
+            ),
+            title: Text(
+              bd,
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ),
         ),
         Container(
-          height: 50,
-          width: double.infinity,
-          padding: EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Icon(Icons.mail_outline_rounded),
-              Text(email),
-            ],
-          ),
-        ),
-        Divider(
-          thickness: 5.0,
-        ),
-        Container(
-          height: 50,
-          width: double.infinity,
-          padding: EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Icon(Icons.location_on),
-              Text(address),
-            ],
-          ),
-        ),
-        Divider(
-          thickness: 5.0,
-        ),
-        Container(
-          height: 50,
-          width: double.infinity,
-          padding: EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Icon(Icons.cake_rounded),
-              Text(bd),
-            ],
-          ),
-        ),
-        Divider(
-          thickness: 5.0,
-        ),
-        Container(
-          height: 50,
-          width: double.infinity,
-          padding: EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Icon(Icons.cake_rounded),
-              Text('$isFav'),
-            ],
-          ),
-        ),
-        Divider(
-          thickness: 5.0,
+          child: note.length < 2
+              ? SizedBox(
+                  height: 100,
+                )
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
+                      child: Text(
+                        'Note:',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        padding: EdgeInsets.all(10.0),
+                        height: 170,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(color: Colors.red, width: 1),
+                        ),
+                        child: Text(
+                          note,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
         ),
       ],
     );
