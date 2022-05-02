@@ -7,8 +7,14 @@ import '../providers/contacts_provider.dart';
 import './contacts_detail_screen.dart';
 import '../widgets/card_list_item.dart';
 
-class ContactListScreen extends StatelessWidget {
+class ContactListScreen extends StatefulWidget {
   ContactListScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ContactListScreen> createState() => _ContactListScreenState();
+}
+
+class _ContactListScreenState extends State<ContactListScreen> {
   ScrollController _scrollController = ScrollController();
 
   @override

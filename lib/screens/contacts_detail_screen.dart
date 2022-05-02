@@ -373,105 +373,111 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListTile(
-            enabled: true,
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                  color: ui.Color.fromARGB(255, 253, 220, 102), width: 1),
-              borderRadius: BorderRadius.circular(40),
-            ),
-            leading: ShaderMask(
-              blendMode: BlendMode.srcIn,
-              shaderCallback: (Rect bounds) {
-                return ui.Gradient.linear(
-                  Offset(24.0, 4.0),
-                  Offset(4.0, 24.0),
-                  [
-                    Colors.amberAccent,
-                    Colors.deepOrange,
-                  ],
-                );
-              },
-              child: Icon(
-                Icons.mail_outline_rounded,
-                size: 30,
+        email.length < 2
+            ? Container()
+            : Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  enabled: true,
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                        color: ui.Color.fromARGB(255, 253, 220, 102), width: 1),
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  leading: ShaderMask(
+                    blendMode: BlendMode.srcIn,
+                    shaderCallback: (Rect bounds) {
+                      return ui.Gradient.linear(
+                        Offset(24.0, 4.0),
+                        Offset(4.0, 24.0),
+                        [
+                          Colors.amberAccent,
+                          Colors.deepOrange,
+                        ],
+                      );
+                    },
+                    child: Icon(
+                      Icons.mail_outline_rounded,
+                      size: 30,
+                    ),
+                  ),
+                  title: Text(
+                    email,
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
               ),
-            ),
-            title: Text(
-              email,
-              style: TextStyle(
-                fontSize: 20,
+        address.length < 2
+            ? Container()
+            : Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.cyanAccent, width: 1),
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  leading: ShaderMask(
+                    blendMode: BlendMode.srcIn,
+                    shaderCallback: (Rect bounds) {
+                      return ui.Gradient.linear(
+                        Offset(24.0, 4.0),
+                        Offset(10.0, 24.0),
+                        [
+                          Colors.cyanAccent,
+                          ui.Color.fromARGB(251, 11, 7, 92),
+                        ],
+                      );
+                    },
+                    child: Icon(
+                      Icons.location_on,
+                      size: 30,
+                    ),
+                  ),
+                  title: Text(
+                    address,
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListTile(
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.cyanAccent, width: 1),
-              borderRadius: BorderRadius.circular(40),
-            ),
-            leading: ShaderMask(
-              blendMode: BlendMode.srcIn,
-              shaderCallback: (Rect bounds) {
-                return ui.Gradient.linear(
-                  Offset(24.0, 4.0),
-                  Offset(10.0, 24.0),
-                  [
-                    Colors.cyanAccent,
-                    ui.Color.fromARGB(251, 11, 7, 92),
-                  ],
-                );
-              },
-              child: Icon(
-                Icons.location_on,
-                size: 30,
+        bd.length < 2
+            ? Container()
+            : Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                        color: ui.Color.fromARGB(255, 254, 156, 189), width: 1),
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  leading: ShaderMask(
+                    blendMode: BlendMode.srcIn,
+                    shaderCallback: (Rect bounds) {
+                      return ui.Gradient.linear(
+                        Offset(24.0, 4.0),
+                        Offset(10.0, 24.0),
+                        [
+                          Colors.white,
+                          Colors.pink,
+                        ],
+                      );
+                    },
+                    child: Icon(
+                      Icons.cake_rounded,
+                      size: 30,
+                    ),
+                  ),
+                  title: Text(
+                    bd,
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
               ),
-            ),
-            title: Text(
-              address,
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ListTile(
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                  color: ui.Color.fromARGB(255, 254, 156, 189), width: 1),
-              borderRadius: BorderRadius.circular(40),
-            ),
-            leading: ShaderMask(
-              blendMode: BlendMode.srcIn,
-              shaderCallback: (Rect bounds) {
-                return ui.Gradient.linear(
-                  Offset(24.0, 4.0),
-                  Offset(10.0, 24.0),
-                  [
-                    Colors.white,
-                    Colors.pink,
-                  ],
-                );
-              },
-              child: Icon(
-                Icons.cake_rounded,
-                size: 30,
-              ),
-            ),
-            title: Text(
-              bd,
-              style: TextStyle(
-                fontSize: 20,
-              ),
-            ),
-          ),
-        ),
         Container(
           child: note.length < 2
               ? SizedBox(
