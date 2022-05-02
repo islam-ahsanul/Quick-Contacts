@@ -46,81 +46,123 @@ class FavoriteScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(20),
-                                bottomLeft: Radius.circular(20),
-                                topRight: Radius.circular(20),
-                                bottomRight: Radius.circular(20),
-                              ),
-                              child: Image.file(
-                                contactsProvider.items[i].image,
-                                fit: BoxFit.cover,
-                                height: 120,
-                                width: 110,
+                            GestureDetector(
+                              onTap: () {
+                                print('tapped image for call');
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                  bottomRight: Radius.circular(20),
+                                ),
+                                child: Image.file(
+                                  contactsProvider.items[i].image,
+                                  fit: BoxFit.cover,
+                                  height: 120,
+                                  width: 110,
+                                ),
                               ),
                             ),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Text(
-                                    contactsProvider.items[i].name,
-                                    softWrap: true,
-                                    style: TextStyle(
-                                      fontSize: 25,
+                                  InkWell(
+                                    onTap: () {},
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Container(
+                                      height: 65,
+                                      alignment: Alignment.center,
+                                      width: double.infinity,
+                                      child: SingleChildScrollView(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            contactsProvider.items[i].name,
+                                            // softWrap: true,
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontSize: 24,
+                                              // fontFamily: 'Roboto',
+                                              // fontWeight: FontWeight.normal,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   IntrinsicHeight(
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Expanded(
-                                          child: ShaderMask(
-                                            blendMode: BlendMode.srcIn,
-                                            shaderCallback: (Rect bounds) {
-                                              return ui.Gradient.linear(
-                                                Offset(24.0, 24.0),
-                                                Offset(15.0, 24.0),
-                                                [
-                                                  Colors.greenAccent,
-                                                  Colors.green,
-                                                ],
-                                              );
-                                            },
-                                            child: TextButton.icon(
-                                              onPressed: () {},
-                                              icon: Icon(Icons.call),
-                                              label: Text('Call'),
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                            child: ShaderMask(
+                                              blendMode: BlendMode.srcIn,
+                                              shaderCallback: (Rect bounds) {
+                                                return ui.Gradient.linear(
+                                                  Offset(18.0, 24.0),
+                                                  Offset(24.0, 4.0),
+                                                  [
+                                                    Colors.greenAccent,
+                                                    Color.fromARGB(
+                                                        255, 35, 204, 41),
+                                                  ],
+                                                );
+                                              },
+                                              child: TextButton.icon(
+                                                onPressed: () {},
+                                                icon: Icon(Icons.call),
+                                                label: Text(
+                                                  'Call',
+                                                  style: TextStyle(
+                                                    fontSize: 18,
+                                                    // fontWeight: FontWeight.bold,
+                                                    fontFamily: 'MPLUSRounded',
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        VerticalDivider(
-                                          thickness: 5,
-                                        ),
-                                        Expanded(
-                                          child: ShaderMask(
-                                            blendMode: BlendMode.srcIn,
-                                            shaderCallback: (Rect bounds) {
-                                              return ui.Gradient.linear(
-                                                Offset(24.0, 4.0),
-                                                Offset(18.0, 24.0),
-                                                [
-                                                  Color.fromARGB(
-                                                      255, 5, 26, 130),
-                                                  Colors.cyan,
-                                                ],
-                                              );
-                                            },
-                                            child: TextButton.icon(
-                                              onPressed: () {},
-                                              icon: Icon(Icons.sms_rounded),
-                                              label: Text('Text'),
+                                          VerticalDivider(
+                                            thickness: 1,
+                                          ),
+                                          Expanded(
+                                            child: ShaderMask(
+                                              blendMode: BlendMode.srcIn,
+                                              shaderCallback: (Rect bounds) {
+                                                return ui.Gradient.linear(
+                                                  Offset(24.0, 4.0),
+                                                  Offset(18.0, 24.0),
+                                                  [
+                                                    Color.fromARGB(
+                                                        255, 5, 26, 130),
+                                                    Colors.cyan,
+                                                  ],
+                                                );
+                                              },
+                                              child: TextButton.icon(
+                                                onPressed: () {},
+                                                icon: Icon(Icons.sms_rounded),
+                                                label: Text(
+                                                  'Text',
+                                                  style: TextStyle(
+                                                    fontSize: 18,
+                                                    // fontWeight: FontWeight.bold,
+                                                    fontFamily: 'MPLUSRounded',
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                        )
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ],
