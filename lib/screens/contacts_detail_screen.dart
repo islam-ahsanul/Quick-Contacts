@@ -344,7 +344,8 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.black12, width: 1),
+              side: BorderSide(
+                  color: ui.Color.fromARGB(255, 179, 255, 93), width: 1),
               borderRadius: BorderRadius.circular(40),
             ),
             leading: ShaderMask(
@@ -377,7 +378,8 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
           child: ListTile(
             enabled: true,
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.black12, width: 1),
+              side: BorderSide(
+                  color: ui.Color.fromARGB(255, 253, 220, 102), width: 1),
               borderRadius: BorderRadius.circular(40),
             ),
             leading: ShaderMask(
@@ -409,7 +411,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.black12, width: 1),
+              side: BorderSide(color: Colors.cyanAccent, width: 1),
               borderRadius: BorderRadius.circular(40),
             ),
             leading: ShaderMask(
@@ -441,7 +443,8 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.black12, width: 1),
+              side: BorderSide(
+                  color: ui.Color.fromARGB(255, 254, 156, 189), width: 1),
               borderRadius: BorderRadius.circular(40),
             ),
             leading: ShaderMask(
@@ -483,6 +486,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         'Note:',
                         style: TextStyle(
                           fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
@@ -494,7 +498,9 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: Colors.black12, width: 1),
+                          border: Border.all(
+                              color: ui.Color.fromARGB(31, 112, 112, 112),
+                              width: 1),
                         ),
                         child: Text(
                           note,
