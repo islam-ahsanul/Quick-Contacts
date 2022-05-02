@@ -206,7 +206,9 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   children: [
                     Expanded(child: callButton()),
                     Expanded(child: smsButton()),
-                    Expanded(child: emailButton()),
+                    selectedContact.email.isEmpty
+                        ? Container()
+                        : Expanded(child: emailButton()),
                   ],
                 ),
               ),
