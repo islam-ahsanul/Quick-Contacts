@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:async';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -186,8 +187,8 @@ class _EditScreenState extends State<EditScreen> {
                     TextFormField(
                       controller: _birthdayController,
                       decoration: InputDecoration(
-                        labelText: 'BD',
-                        hintText: 'Enter BD',
+                        labelText: 'Select Birthdate',
+                        hintText: 'Tap to select',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -197,7 +198,20 @@ class _EditScreenState extends State<EditScreen> {
                         ),
                       ),
                       // keyboardType: TextInputType.text,
-                      textInputAction: TextInputAction.done,
+                      // textInputAction: TextInputAction.done,
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(1900),
+                          lastDate: DateTime.now(),
+                        );
+                        if (pickedDate != null) {
+                          String formattedDate =
+                              DateFormat.yMMMMd().format(pickedDate);
+                          _birthdayController.text = formattedDate;
+                        }
+                      },
                     ),
                     SizedBox(
                       height: 10,
