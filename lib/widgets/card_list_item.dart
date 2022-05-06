@@ -52,7 +52,11 @@ class CardListItem extends StatelessWidget {
                   right: 10,
                   child: Container(
                     width: 300,
-                    color: Colors.black54,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.black54,
+                    ),
+                    // color: Colors.black54,
                     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: Text(
                       sentName,
@@ -60,6 +64,8 @@ class CardListItem extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 26,
                         color: Colors.white,
+                        fontFamily: 'Comfortaa',
+                        fontWeight: FontWeight.bold,
                       ),
                       softWrap: true,
                       overflow: TextOverflow.fade,
@@ -105,6 +111,9 @@ class CardListItem extends StatelessWidget {
                         },
                         label: Text(
                           'Details',
+                          style: TextStyle(
+                            fontFamily: 'SourceSansPro',
+                          ),
                         ),
                       ),
                     ),
@@ -136,6 +145,9 @@ class CardListItem extends StatelessWidget {
                         onPressed: () {},
                         label: Text(
                           'Text',
+                          style: TextStyle(
+                            fontFamily: 'SourceSansPro',
+                          ),
                         ),
                       ),
                     ),
@@ -166,7 +178,12 @@ class CardListItem extends StatelessWidget {
                           Icons.call_rounded,
                         ),
                         onPressed: () {},
-                        label: Text('Call'),
+                        label: Text(
+                          'Call',
+                          style: TextStyle(
+                            fontFamily: 'SourceSansPro',
+                          ),
+                        ),
                       ),
                     ),
                   ),
