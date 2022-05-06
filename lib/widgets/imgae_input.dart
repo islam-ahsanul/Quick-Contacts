@@ -97,7 +97,7 @@ class _ImgaeInputState extends State<ImgaeInput> {
         IconButton(
           iconSize: 35,
           onPressed: _takePicture,
-          icon: Icon(Icons.camera_alt_rounded),
+          icon: Icon(Icons.add_a_photo_rounded),
         ),
       ],
     );

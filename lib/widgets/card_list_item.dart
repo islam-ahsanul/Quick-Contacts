@@ -45,6 +45,8 @@ class CardListItem extends StatelessWidget {
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
+                    alignment: Alignment(0.0, -0.2),
+                    // alignment: Alignment.center,
                   ),
                 ),
                 Positioned(
