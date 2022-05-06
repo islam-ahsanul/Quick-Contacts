@@ -138,9 +138,63 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                     enableFeedback: true,
                     splashColor: Colors.red,
                     color: Colors.black,
-                    onPressed: () {
-                      _deleteContact(selectedContact.id);
-                    },
+                    // _deleteContact(selectedContact.id);
+                    onPressed: () => showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: Text(
+                          'Delete this contact?',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'MPLUSRounded',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text(
+                              'Cancel',
+                              style: TextStyle(
+                                fontFamily: 'MPLUSRounded',
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              _deleteContact(selectedContact.id);
+                              Navigator.of(context).pop();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40),
+                                  ),
+                                  behavior: SnackBarBehavior.floating,
+                                  duration: Duration(seconds: 3),
+                                  backgroundColor: Colors.black,
+                                  content: Text(
+                                    'Deleted the contact. Refresh the page to see effect.',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontFamily: 'SourceSansPro',
+                                      // color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'Delete',
+                              style: TextStyle(
+                                fontFamily: 'MPLUSRounded',
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     icon: Icon(Icons.delete),
                   ),
                 ),
