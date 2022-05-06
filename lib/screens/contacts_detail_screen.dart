@@ -79,7 +79,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   backgroundColor: Colors.white30,
                   child: IconButton(
                     enableFeedback: true,
-                    splashColor: Colors.red,
+                    // splashColor: Colors.red,
                     color: Colors.black,
                     onPressed: () {
                       Navigator.of(context).pushNamed(EditScreen.routeName,
@@ -96,7 +96,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   backgroundColor: Colors.white30,
                   child: IconButton(
                     enableFeedback: true,
-                    splashColor: Colors.red,
+                    // splashColor: Colors.red,
                     color: Colors.black,
                     onPressed: () {
                       if (selectedContact.isFavorite == 0) {
@@ -122,6 +122,25 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                             selectedContact.note,
                             0);
                       }
+                      // ---------- snackbar
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          behavior: SnackBarBehavior.floating,
+                          duration: Duration(seconds: 2),
+                          backgroundColor: Colors.black,
+                          content: Text(
+                            'Favorites updated',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: 'SourceSansPro',
+                              // color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      );
                     },
                     icon: selectedContact.isFavorite == 0
                         ? Icon(Icons.star_border_outlined)
@@ -136,7 +155,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   backgroundColor: Colors.white30,
                   child: IconButton(
                     enableFeedback: true,
-                    splashColor: Colors.red,
+                    // splashColor: Colors.red,
                     color: Colors.black,
                     // _deleteContact(selectedContact.id);
                     onPressed: () => showDialog(
