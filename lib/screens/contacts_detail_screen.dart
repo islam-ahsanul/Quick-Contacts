@@ -576,7 +576,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                     ),
                   ),
                   title: Text(
-                    bd,
+                    bd.split(',')[0],
                     style: TextStyle(
                       fontSize: 20,
                     ),

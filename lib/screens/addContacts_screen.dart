@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 import '../providers/contacts_provider.dart';
 import '../widgets/imgae_input.dart';
@@ -238,8 +239,8 @@ class _AddContactScreenState extends State<AddContactScreen> {
   Widget buildBirthday() => TextField(
         controller: _birthdayController,
         decoration: InputDecoration(
-          labelText: 'BD',
-          hintText: 'Enter BD',
+          labelText: 'Select Birthdate',
+          hintText: 'Tap to select',
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
@@ -248,7 +249,23 @@ class _AddContactScreenState extends State<AddContactScreen> {
             size: 30,
           ),
         ),
+        readOnly: true,
         // keyboardType: TextInputType.text,
-        textInputAction: TextInputAction.done,
+        // textInputAction: TextInputAction.done,
+        onTap: () async {
+          DateTime? pickedDate = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(1900),
+            lastDate: DateTime.now(),
+          );
+
+          if (pickedDate != null) {
+            String formattedDate = DateFormat.yMMMMd().format(pickedDate);
+            setState(() {
+              _birthdayController.text = formattedDate;
+            });
+          }
+        },
       );
 }
