@@ -346,7 +346,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             shape: RoundedRectangleBorder(
               side: BorderSide(
                   color: ui.Color.fromARGB(255, 179, 255, 93), width: 1),
-              borderRadius: BorderRadius.circular(40),
+              borderRadius: BorderRadius.circular(30),
             ),
             leading: ShaderMask(
               blendMode: BlendMode.srcIn,
@@ -382,7 +382,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                         color: ui.Color.fromARGB(255, 253, 220, 102), width: 1),
-                    borderRadius: BorderRadius.circular(40),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   leading: ShaderMask(
                     blendMode: BlendMode.srcIn,
@@ -416,7 +416,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                 child: ListTile(
                   shape: RoundedRectangleBorder(
                     side: BorderSide(color: Colors.cyanAccent, width: 1),
-                    borderRadius: BorderRadius.circular(40),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   leading: ShaderMask(
                     blendMode: BlendMode.srcIn,
@@ -451,7 +451,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                         color: ui.Color.fromARGB(255, 254, 156, 189), width: 1),
-                    borderRadius: BorderRadius.circular(40),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   leading: ShaderMask(
                     blendMode: BlendMode.srcIn,
