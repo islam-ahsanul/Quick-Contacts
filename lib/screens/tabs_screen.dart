@@ -26,13 +26,29 @@ class _TabScreenState extends State<TabScreen> {
             ),
           ),
           bottom: TabBar(
+            // indicatorColor: Colors.red,
+            labelStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: 'SourceSansPro',
+              fontSize: 15,
+            ),
+            labelColor: Colors.indigo[900],
+
+            unselectedLabelColor: Colors.black,
+            unselectedLabelStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: 'SourceSansPro',
+              fontSize: 14,
+            ),
             tabs: [
               Tab(
                 icon: Icon(Icons.contacts),
                 text: 'All Contacts',
               ),
               Tab(
-                icon: Icon(Icons.stars),
+                icon: Icon(
+                  Icons.stars,
+                ),
                 text: 'Favorites',
               ),
             ],
