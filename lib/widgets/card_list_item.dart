@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import '../screens/contacts_detail_screen.dart';
@@ -73,60 +74,99 @@ class CardListItem extends StatelessWidget {
                 // crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
-                    child: TextButton.icon(
-                      style: ButtonStyle(
-                        padding: MaterialStateProperty.all(
-                            EdgeInsets.symmetric(vertical: 15.0)),
-                        enableFeedback: true,
-                        textStyle:
-                            MaterialStateProperty.all(TextStyle(fontSize: 18)),
-                      ),
-                      icon: Icon(
-                        Icons.info,
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed(
-                            ContactDetailScreen.routeName,
-                            arguments: sentId);
+                    child: ShaderMask(
+                      blendMode: BlendMode.srcIn,
+                      shaderCallback: (Rect bounds) {
+                        return ui.Gradient.linear(
+                          Offset(24.0, 8.0),
+                          Offset(18.0, 24.0),
+                          [
+                            Colors.amber,
+                            ui.Color.fromARGB(255, 238, 143, 0),
+                          ],
+                        );
                       },
-                      label: Text(
-                        'Details',
+                      child: TextButton.icon(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all(
+                              EdgeInsets.symmetric(vertical: 15.0)),
+                          enableFeedback: true,
+                          textStyle: MaterialStateProperty.all(
+                              TextStyle(fontSize: 18)),
+                        ),
+                        icon: Icon(
+                          Icons.info,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(
+                              ContactDetailScreen.routeName,
+                              arguments: sentId);
+                        },
+                        label: Text(
+                          'Details',
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
-                    child: TextButton.icon(
-                      style: ButtonStyle(
-                        padding: MaterialStateProperty.all(
-                            EdgeInsets.symmetric(vertical: 15.0)),
-                        enableFeedback: true,
-                        textStyle:
-                            MaterialStateProperty.all(TextStyle(fontSize: 18)),
-                      ),
-                      icon: Icon(
-                        Icons.sms_rounded,
-                      ),
-                      onPressed: () {},
-                      label: Text(
-                        'Text',
+                    child: ShaderMask(
+                      blendMode: BlendMode.srcIn,
+                      shaderCallback: (Rect bounds) {
+                        return ui.Gradient.linear(
+                          Offset(24.0, 8.0),
+                          Offset(18.0, 24.0),
+                          [
+                            Color.fromARGB(255, 5, 26, 130),
+                            ui.Color.fromARGB(255, 26, 130, 216),
+                          ],
+                        );
+                      },
+                      child: TextButton.icon(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all(
+                              EdgeInsets.symmetric(vertical: 15.0)),
+                          enableFeedback: true,
+                          textStyle: MaterialStateProperty.all(
+                              TextStyle(fontSize: 18)),
+                        ),
+                        icon: Icon(
+                          Icons.sms_rounded,
+                        ),
+                        onPressed: () {},
+                        label: Text(
+                          'Text',
+                        ),
                       ),
                     ),
                   ),
                   // SizedBox(width: 6),
                   Expanded(
-                    child: TextButton.icon(
-                      style: ButtonStyle(
-                        padding: MaterialStateProperty.all(
-                            EdgeInsets.symmetric(vertical: 15.0)),
-                        enableFeedback: true,
-                        textStyle:
-                            MaterialStateProperty.all(TextStyle(fontSize: 18)),
+                    child: ShaderMask(
+                      blendMode: BlendMode.srcIn,
+                      shaderCallback: (Rect bounds) {
+                        return ui.Gradient.linear(
+                          Offset(18.0, 24.0),
+                          Offset(24.0, 4.0),
+                          [
+                            Colors.greenAccent,
+                            Colors.green,
+                          ],
+                        );
+                      },
+                      child: TextButton.icon(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all(
+                              EdgeInsets.symmetric(vertical: 15.0)),
+                          enableFeedback: true,
+                          textStyle: MaterialStateProperty.all(
+                              TextStyle(fontSize: 18)),
+                        ),
+                        icon: Icon(
+                          Icons.call_rounded,
+                        ),
+                        onPressed: () {},
+                        label: Text('Call'),
                       ),
-                      icon: Icon(
-                        Icons.call_rounded,
-                      ),
-                      onPressed: () {},
-                      label: Text('Call'),
                     ),
                   ),
                   // SizedBox(width: 6),

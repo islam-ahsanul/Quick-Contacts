@@ -156,7 +156,8 @@ class FavoriteScreen extends StatelessWidget {
                                                     [
                                                       Color.fromARGB(
                                                           255, 5, 26, 130),
-                                                      Colors.cyan,
+                                                      Color.fromARGB(
+                                                          255, 71, 150, 215),
                                                     ],
                                                   );
                                                 },
