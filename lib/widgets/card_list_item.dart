@@ -20,6 +20,7 @@ class CardListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onLongPress: () {},
       onTap: () {
         Navigator.of(context)
             .pushNamed(ContactDetailScreen.routeName, arguments: sentId);

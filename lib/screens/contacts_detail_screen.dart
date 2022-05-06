@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
@@ -343,6 +344,31 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            onLongPress: () {
+              Clipboard.setData(
+                ClipboardData(text: phone),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  // margin:
+                  //     EdgeInsets.symmetric(vertical: 100.0, horizontal: 10.0),
+                  behavior: SnackBarBehavior.floating,
+                  duration: Duration(seconds: 1),
+                  backgroundColor: Colors.black,
+                  content: Text(
+                    'Copied phone number to clipboard',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'SourceSansPro',
+                      // color: Colors.black,
+                    ),
+                  ),
+                ),
+              );
+            },
             visualDensity: VisualDensity(vertical: -1),
             shape: RoundedRectangleBorder(
               side: BorderSide(
@@ -379,6 +405,31 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             : Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
+                  onLongPress: () {
+                    Clipboard.setData(
+                      ClipboardData(text: email),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        // margin:
+                        //     EdgeInsets.symmetric(vertical: 100.0, horizontal: 10.0),
+                        behavior: SnackBarBehavior.floating,
+                        duration: Duration(seconds: 1),
+                        backgroundColor: Colors.black,
+                        content: Text(
+                          'Copied email address to clipboard',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'SourceSansPro',
+                            // color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                   visualDensity: VisualDensity(vertical: -1),
                   enabled: true,
                   shape: RoundedRectangleBorder(
@@ -416,6 +467,31 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             : Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
+                  onLongPress: () {
+                    Clipboard.setData(
+                      ClipboardData(text: address),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        // margin:
+                        //     EdgeInsets.symmetric(vertical: 100.0, horizontal: 10.0),
+                        behavior: SnackBarBehavior.floating,
+                        duration: Duration(seconds: 1),
+                        backgroundColor: Colors.black,
+                        content: Text(
+                          'Copied address to clipboard',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'SourceSansPro',
+                            // color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                   visualDensity: VisualDensity(vertical: -1),
                   shape: RoundedRectangleBorder(
                     side: BorderSide(color: Colors.cyanAccent, width: 1),
@@ -451,6 +527,31 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             : Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
+                  onLongPress: () {
+                    Clipboard.setData(
+                      ClipboardData(text: bd),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        // margin:
+                        //     EdgeInsets.symmetric(vertical: 100.0, horizontal: 10.0),
+                        behavior: SnackBarBehavior.floating,
+                        duration: Duration(seconds: 1),
+                        backgroundColor: Colors.black,
+                        content: Text(
+                          'Copied birth date to clipboard',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'SourceSansPro',
+                            // color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                   visualDensity: VisualDensity(vertical: -1),
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
@@ -502,21 +603,48 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        padding: EdgeInsets.all(10.0),
-                        height: 170,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                              color: ui.Color.fromARGB(31, 112, 112, 112),
-                              width: 1),
-                        ),
-                        child: Text(
-                          note,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 20,
+                      child: GestureDetector(
+                        onLongPress: () {
+                          Clipboard.setData(
+                            ClipboardData(text: note),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              // margin:
+                              //     EdgeInsets.symmetric(vertical: 100.0, horizontal: 10.0),
+                              behavior: SnackBarBehavior.floating,
+                              duration: Duration(seconds: 1),
+                              backgroundColor: Colors.black,
+                              content: Text(
+                                'Copied notes to clipboard',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: 'SourceSansPro',
+                                  // color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(10.0),
+                          height: 170,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                                color: ui.Color.fromARGB(31, 112, 112, 112),
+                                width: 1),
+                          ),
+                          child: Text(
+                            note,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
