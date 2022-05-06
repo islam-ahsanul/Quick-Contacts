@@ -308,7 +308,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
 
   Widget emailButton() {
     return InkWell(
-      overlayColor: MaterialStateProperty.all(Colors.yellow),
+      overlayColor: MaterialStateProperty.all(Colors.orange),
       borderRadius: BorderRadius.circular(10),
       // enableFeedback: true,
       onTap: () {},
@@ -343,6 +343,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            visualDensity: VisualDensity(vertical: -1),
             shape: RoundedRectangleBorder(
               side: BorderSide(
                   color: ui.Color.fromARGB(255, 179, 255, 93), width: 1),
@@ -378,6 +379,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             : Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
+                  visualDensity: VisualDensity(vertical: -1),
                   enabled: true,
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
@@ -414,6 +416,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             : Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
+                  visualDensity: VisualDensity(vertical: -1),
                   shape: RoundedRectangleBorder(
                     side: BorderSide(color: Colors.cyanAccent, width: 1),
                     borderRadius: BorderRadius.circular(30),
@@ -448,6 +451,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             : Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListTile(
+                  visualDensity: VisualDensity(vertical: -1),
                   shape: RoundedRectangleBorder(
                     side: BorderSide(
                         color: ui.Color.fromARGB(255, 254, 156, 189), width: 1),
