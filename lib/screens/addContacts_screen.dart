@@ -217,8 +217,8 @@ class _AddContactScreenState extends State<AddContactScreen> {
           ),
         ),
         keyboardType: TextInputType.multiline,
-        textInputAction: TextInputAction.next,
-        maxLines: 3,
+        textInputAction: TextInputAction.newline,
+        maxLines: 4,
       );
   Widget buildPhone() => TextField(
         controller: _phoneController,

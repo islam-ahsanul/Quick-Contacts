@@ -704,7 +704,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         },
                         child: Container(
                           padding: EdgeInsets.all(10.0),
-                          height: 170,
+                          // height: 170,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
@@ -712,11 +712,15 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                                 color: ui.Color.fromARGB(31, 112, 112, 112),
                                 width: 1),
                           ),
-                          child: Text(
-                            note,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: Text(
+                              note,
+                              textAlign: TextAlign.center,
+                              // softWrap: true,
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                         ),

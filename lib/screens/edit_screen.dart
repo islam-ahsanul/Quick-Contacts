@@ -230,8 +230,8 @@ class _EditScreenState extends State<EditScreen> {
                         ),
                       ),
                       keyboardType: TextInputType.multiline,
-                      textInputAction: TextInputAction.next,
-                      maxLines: 3,
+                      textInputAction: TextInputAction.newline,
+                      maxLines: 4,
                     ),
                     SizedBox(
                       height: 20,
