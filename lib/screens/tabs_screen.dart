@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 import './contacts_list_screen.dart';
 import './favories_screen.dart';
@@ -13,6 +14,11 @@ class TabScreen extends StatefulWidget {
 }
 
 class _TabScreenState extends State<TabScreen> {
+  final List<String> _backgroundImages = [
+    'assets/images/background_one.jpg',
+    'assets/images/background_two.jpg',
+  ];
+  Random random = Random();
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -22,7 +28,8 @@ class _TabScreenState extends State<TabScreen> {
           foregroundColor: Colors.black,
           flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
-              'assets/images/background_one.jpg',
+              // 'assets/images/background_one.jpg',
+              _backgroundImages[random.nextInt(2)],
               fit: BoxFit.cover,
             ),
           ),
