@@ -21,6 +21,9 @@ class EditScreen extends StatefulWidget {
 
 class _EditScreenState extends State<EditScreen> {
   var _pickedImage = null; // ... need to edit
+  bool _phoneVal = false;
+  bool _emailVal = false;
+  bool _nameVal = false;
 
   void _selectImage(File pickedImage) {
     _pickedImage = pickedImage;
@@ -113,6 +116,7 @@ class _EditScreenState extends State<EditScreen> {
                       decoration: InputDecoration(
                         labelText: 'Name',
                         hintText: 'Enter Name',
+                        errorText: _nameVal ? 'Name Can\'t Be Empty' : null,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -131,6 +135,8 @@ class _EditScreenState extends State<EditScreen> {
                       decoration: InputDecoration(
                         labelText: 'Phone',
                         hintText: 'Enter 11 digit phone number',
+                        errorText:
+                            _phoneVal ? 'Enter 11 digit phone number' : null,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -150,6 +156,8 @@ class _EditScreenState extends State<EditScreen> {
                       decoration: InputDecoration(
                         labelText: 'Email',
                         hintText: 'Enter Email Address',
+                        errorText:
+                            _emailVal ? 'Enter a valid email address' : null,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -243,6 +251,27 @@ class _EditScreenState extends State<EditScreen> {
           ),
           ElevatedButton.icon(
             onPressed: () {
+              // ---------- Validation -----------------------------
+              setState(() {
+                _phoneController.text.length != 11
+                    ? _phoneVal = true
+                    : _phoneVal = false;
+                if (_emailController.text.isNotEmpty) {
+                  _emailController.text.contains('@') &&
+                          _emailController.text.contains('.')
+                      ? _emailVal = false
+                      : _emailVal = true;
+                }
+                _nameController.text.isEmpty
+                    ? _nameVal = true
+                    : _nameVal = false;
+              });
+              // ---------------------------------------------------
+              if (_nameVal == true || _phoneVal == true || _emailVal == true) {
+                // can add showDialog
+                return;
+              }
+              // ---------------------------------------------------
               Provider.of<ContactsProvider>(context, listen: false)
                   .updateContact(
                 selectedContact.id,

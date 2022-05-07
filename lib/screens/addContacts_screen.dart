@@ -29,6 +29,9 @@ class _AddContactScreenState extends State<AddContactScreen> {
   final _phoneController = TextEditingController();
   final _birthdayController = TextEditingController();
   var _pickedImage = null;
+  bool _phoneVal = false;
+  bool _emailVal = false;
+  bool _nameVal = false;
 
   void _selectImage(File pickedImage) {
     _pickedImage = pickedImage;
@@ -45,10 +48,23 @@ class _AddContactScreenState extends State<AddContactScreen> {
   }
 
   void _saveContact() async {
-    if (_nameController.text.isEmpty || _phoneController.text.isEmpty) {
+    // ---------- Validation -----------------------------
+    setState(() {
+      _phoneController.text.length != 11 ? _phoneVal = true : _phoneVal = false;
+      if (_emailController.text.isNotEmpty) {
+        _emailController.text.contains('@') &&
+                _emailController.text.contains('.')
+            ? _emailVal = false
+            : _emailVal = true;
+      }
+      _nameController.text.isEmpty ? _nameVal = true : _nameVal = false;
+    });
+    // ---------------------------------------------------
+    if (_nameVal == true || _phoneVal == true || _emailVal == true) {
       // can add showDialog
       return;
     }
+    // ---------------------------------------------------
 
     File backupImage = await getImageFileFromAssets('cont_icon.png');
 
@@ -160,6 +176,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
         decoration: InputDecoration(
           labelText: 'Name',
           hintText: 'Enter Name',
+          errorText: _nameVal ? 'Name Can\'t Be Empty' : null,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
@@ -175,6 +192,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
         decoration: InputDecoration(
           labelText: 'Email',
           hintText: 'Enter Email Address',
+          errorText: _emailVal ? 'Enter a valid email address' : null,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
@@ -225,6 +243,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
         decoration: InputDecoration(
           labelText: 'Phone',
           hintText: 'Enter 11 digit phone number',
+          errorText: _phoneVal ? 'Enter 11 digit phone number' : null,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
