@@ -48,7 +48,87 @@ class _TabScreenState extends State<TabScreen> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        drawer: MyDrawer(),
+        drawer: Drawer(
+          child: Container(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  padding: EdgeInsets.fromLTRB(0, 100, 0, 10),
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 5, 20, 106),
+                    // borderRadius: BorderRadius.only(
+                    //   // bottomLeft: Radius.circular(40),
+                    //   bottomRight: Radius.circular(40),
+                    // ),
+                    gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.topRight,
+                      colors: [
+                        Color.fromARGB(255, 7, 31, 165),
+                        Color.fromARGB(255, 2, 13, 74),
+                      ],
+                    ),
+                  ),
+                  child: Text(
+                    'More',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontFamily: 'MPLUSRounded',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  child: ListTile(
+                    title: Text(
+                      'Small Tiles',
+                      style: TextStyle(
+                        fontFamily: 'MPLUSRounded',
+                        fontSize: 20,
+                      ),
+                    ),
+                    trailing: Switch(
+                      activeColor: Color.fromARGB(255, 6, 18, 82),
+                      value: true,
+                      onChanged: (val) {},
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  child: ListTile(
+                    title: Text(
+                      'Help',
+                      style: TextStyle(
+                        fontFamily: 'MPLUSRounded',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  child: ListTile(
+                    title: Text(
+                      'About',
+                      style: TextStyle(
+                        fontFamily: 'MPLUSRounded',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
           foregroundColor: Colors.black,
           flexibleSpace: FlexibleSpaceBar(
@@ -130,28 +210,6 @@ class _TabScreenState extends State<TabScreen> {
             ContactListScreen(),
             FavoriteScreen(),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-// ------------------------Drawer------------------------------------------
-
-class MyDrawer extends StatelessWidget {
-  const MyDrawer({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      shape: RoundedRectangleBorder(
-          // borderRadius: BorderRadius.only(topRight: 30.0, ),
-          ),
-      child: Container(
-        child: Center(
-          child: Text('This is drawer'),
         ),
       ),
     );
