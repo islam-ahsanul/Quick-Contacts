@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import './contacts_list_screen.dart';
 import './favories_screen.dart';
+import './small_tile_screen.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({Key? key}) : super(key: key);
@@ -14,6 +16,9 @@ class TabScreen extends StatefulWidget {
 }
 
 class _TabScreenState extends State<TabScreen> {
+  Random random = Random();
+  bool isSmallTile = false;
+  late SharedPreferences myPreferences;
   final List<String> _backgroundImages = [
     'assets/images/bg1.jpg',
     'assets/images/bg2.jpg',
@@ -42,7 +47,27 @@ class _TabScreenState extends State<TabScreen> {
     'assets/images/bg25.jpg',
     'assets/images/bg26.jpg',
   ];
-  Random random = Random();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
+  Future loadData() async {
+    myPreferences = await SharedPreferences.getInstance();
+    bool? temp = myPreferences.getBool('SmallTile');
+    if (temp == null) return;
+
+    setState(() {
+      isSmallTile = temp;
+    });
+  }
+
+  void _saveSmallTilePref() async {
+    myPreferences.setBool('SmallTile', isSmallTile);
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -94,8 +119,13 @@ class _TabScreenState extends State<TabScreen> {
                     ),
                     trailing: Switch(
                       activeColor: Color.fromARGB(255, 6, 18, 82),
-                      value: true,
-                      onChanged: (val) {},
+                      value: isSmallTile,
+                      onChanged: (val) {
+                        setState(() {
+                          isSmallTile = val;
+                          _saveSmallTilePref();
+                        });
+                      },
                     ),
                   ),
                 ),
@@ -207,7 +237,7 @@ class _TabScreenState extends State<TabScreen> {
         ),
         body: TabBarView(
           children: [
-            ContactListScreen(),
+            isSmallTile == true ? SmallTileScreen() : ContactListScreen(),
             FavoriteScreen(),
           ],
         ),
