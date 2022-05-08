@@ -488,7 +488,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             title: Text(
               phone,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
               ),
             ),
           ),
@@ -550,7 +550,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   title: Text(
                     email,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                     ),
                   ),
                 ),
@@ -610,7 +610,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   title: Text(
                     address,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                     ),
                   ),
                 ),
@@ -671,7 +671,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   title: Text(
                     bd.split(',')[0],
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                     ),
                   ),
                 ),
@@ -739,7 +739,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                               textAlign: TextAlign.center,
                               // softWrap: true,
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 18,
                               ),
                             ),
                           ),
