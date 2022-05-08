@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'dart:ui' as ui;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 import './contacts_detail_screen.dart';
 import '../providers/contacts_provider.dart';
@@ -51,8 +53,9 @@ class FavoriteScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               GestureDetector(
-                                onTap: () {
-                                  print('tapped image for call');
+                                onLongPress: () {
+                                  launch(
+                                      'tel:${contactsProvider.items[i].phone}');
                                 },
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.only(
@@ -126,7 +129,13 @@ class FavoriteScreen extends StatelessWidget {
                                                   );
                                                 },
                                                 child: TextButton.icon(
-                                                  onPressed: () {},
+                                                  onPressed: () async {
+                                                    await FlutterPhoneDirectCaller
+                                                        .callNumber(
+                                                            contactsProvider
+                                                                .items[i]
+                                                                .phone);
+                                                  },
                                                   icon: Icon(
                                                     Icons.call_rounded,
                                                     size: 23,
@@ -170,7 +179,10 @@ class FavoriteScreen extends StatelessWidget {
                                                   );
                                                 },
                                                 child: TextButton.icon(
-                                                  onPressed: () {},
+                                                  onPressed: () {
+                                                    launch(
+                                                        'sms:${contactsProvider.items[i].phone}');
+                                                  },
                                                   icon: Icon(
                                                     Icons.sms_rounded,
                                                     size: 23,

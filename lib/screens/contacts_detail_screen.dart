@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 import '../providers/contacts_provider.dart';
 
@@ -278,11 +280,23 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Expanded(child: callButton()),
-                    Expanded(child: smsButton()),
+                    Expanded(
+                      child: callButton(
+                        selectedContact.phone,
+                      ),
+                    ),
+                    Expanded(
+                      child: smsButton(
+                        selectedContact.phone,
+                      ),
+                    ),
                     selectedContact.email.isEmpty
                         ? Container()
-                        : Expanded(child: emailButton()),
+                        : Expanded(
+                            child: emailButton(
+                              selectedContact.email,
+                            ),
+                          ),
                   ],
                 ),
               ),
@@ -320,12 +334,14 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
     );
   }
 
-  Widget callButton() {
+  Widget callButton(String phone) {
     return InkWell(
       overlayColor: MaterialStateProperty.all(Color.fromARGB(255, 39, 190, 44)),
       borderRadius: BorderRadius.circular(10),
       enableFeedback: true,
-      onTap: () {},
+      onTap: () async {
+        await FlutterPhoneDirectCaller.callNumber(phone);
+      },
       child: Column(
         children: [
           Padding(
@@ -350,12 +366,14 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
     );
   }
 
-  Widget smsButton() {
+  Widget smsButton(String phone) {
     return InkWell(
       overlayColor: MaterialStateProperty.all(Color.fromARGB(255, 18, 41, 221)),
       borderRadius: BorderRadius.circular(10),
       enableFeedback: true,
-      onTap: () {},
+      onTap: () {
+        launch('sms:$phone');
+      },
       child: Column(
         children: [
           Padding(
@@ -380,12 +398,14 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
     );
   }
 
-  Widget emailButton() {
+  Widget emailButton(String email) {
     return InkWell(
       overlayColor: MaterialStateProperty.all(Colors.orange),
       borderRadius: BorderRadius.circular(10),
       // enableFeedback: true,
-      onTap: () {},
+      onTap: () {
+        launch('mailto:$email');
+      },
       child: Column(
         children: [
           Padding(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 import 'package:provider/provider.dart';
 import 'package:flutter_scrolling_fab_animated/flutter_scrolling_fab_animated.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 import './addContacts_screen.dart';
 import '../providers/contacts_provider.dart';
@@ -101,6 +103,9 @@ class _SmallTileScreenState extends State<SmallTileScreen> {
                                   ContactDetailScreen.routeName,
                                   arguments: contactsProvider.items[i].id);
                             },
+                            onLongPress: () {
+                              launch('tel:${contactsProvider.items[i].phone}');
+                            },
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -117,7 +122,10 @@ class _SmallTileScreenState extends State<SmallTileScreen> {
                                     );
                                   },
                                   child: IconButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      launch(
+                                          'sms:${contactsProvider.items[i].phone}');
+                                    },
                                     icon: Icon(
                                       Icons.sms_rounded,
                                       color: Color.fromARGB(255, 8, 25, 120),
@@ -137,7 +145,10 @@ class _SmallTileScreenState extends State<SmallTileScreen> {
                                     );
                                   },
                                   child: IconButton(
-                                    onPressed: () {},
+                                    onPressed: () async {
+                                      await FlutterPhoneDirectCaller.callNumber(
+                                          contactsProvider.items[i].phone);
+                                    },
                                     icon: Icon(
                                       Icons.call_rounded,
                                       color: Color.fromARGB(255, 14, 154, 19),
