@@ -172,7 +172,7 @@ class _TabScreenState extends State<TabScreen> {
           flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
               // 'assets/images/background_one.jpg',
-              _backgroundImages[random.nextInt(26)],
+              _backgroundImages[random.nextInt(_backgroundImages.length)],
               fit: BoxFit.cover,
             ),
           ),
