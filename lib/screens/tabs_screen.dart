@@ -169,6 +169,7 @@ class _TabScreenState extends State<TabScreen> {
         ),
         appBar: AppBar(
           foregroundColor: Colors.black,
+          backgroundColor: Colors.white,
           flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
               // 'assets/images/background_one.jpg',

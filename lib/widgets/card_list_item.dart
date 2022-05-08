@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'dart:ui' as ui;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 import 'package:flutter/material.dart';
 import '../screens/contacts_detail_screen.dart';
@@ -20,7 +22,10 @@ class CardListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onLongPress: () {}, // add phone call on long press
+      onLongPress: () {
+        // add phone call on long press
+        launch('tel:$sentPhone');
+      },
       onTap: () {
         Navigator.of(context)
             .pushNamed(ContactDetailScreen.routeName, arguments: sentId);
@@ -150,7 +155,9 @@ class CardListItem extends StatelessWidget {
                         icon: Icon(
                           Icons.sms_rounded,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          launch('sms:$sentPhone');
+                        },
                         label: Text(
                           'Text',
                           style: TextStyle(
@@ -185,7 +192,9 @@ class CardListItem extends StatelessWidget {
                         icon: Icon(
                           Icons.call_rounded,
                         ),
-                        onPressed: () {},
+                        onPressed: () async {
+                          await FlutterPhoneDirectCaller.callNumber(sentPhone);
+                        },
                         label: Text(
                           'Call',
                           style: TextStyle(
