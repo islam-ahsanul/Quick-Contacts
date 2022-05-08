@@ -96,7 +96,7 @@ class _TabScreenState extends State<TabScreen> {
                     ),
                   ),
                   child: Text(
-                    'More',
+                    'Settings',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -213,13 +213,12 @@ class _TabScreenState extends State<TabScreen> {
               fontFamily: 'SourceSansPro',
               fontSize: 15,
             ),
-            labelColor: Colors.indigo[900],
+            labelColor: Color.fromARGB(255, 13, 21, 113),
 
             unselectedLabelColor: Colors.black,
             unselectedLabelStyle: TextStyle(
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.normal,
               fontFamily: 'SourceSansPro',
-              fontSize: 14,
             ),
             tabs: [
               Tab(
@@ -228,7 +227,7 @@ class _TabScreenState extends State<TabScreen> {
               ),
               Tab(
                 icon: Icon(
-                  Icons.stars,
+                  Icons.favorite,
                 ),
                 text: 'Favorites',
               ),

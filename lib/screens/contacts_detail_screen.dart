@@ -143,8 +143,8 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                       );
                     },
                     icon: selectedContact.isFavorite == 0
-                        ? Icon(Icons.star_border_outlined)
-                        : Icon(Icons.star),
+                        ? Icon(Icons.favorite_border_rounded)
+                        : Icon(Icons.favorite_rounded),
                   ),
                 ),
               ),
