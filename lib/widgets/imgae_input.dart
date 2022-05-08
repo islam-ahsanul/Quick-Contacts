@@ -64,6 +64,7 @@ class _ImgaeInputState extends State<ImgaeInput> {
                     child: Image.file(
                       _storedImage,
                       fit: BoxFit.cover,
+                      height: double.infinity,
                       width: double.infinity,
                     ),
                   )
@@ -72,6 +73,7 @@ class _ImgaeInputState extends State<ImgaeInput> {
                         child: Image.file(
                           widget.fromEdit,
                           fit: BoxFit.cover,
+                          height: double.infinity,
                           width: double.infinity,
                         ),
                       )
