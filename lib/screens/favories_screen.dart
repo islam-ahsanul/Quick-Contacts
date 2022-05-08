@@ -128,7 +128,7 @@ class FavoriteScreen extends StatelessWidget {
                                                 child: TextButton.icon(
                                                   onPressed: () {},
                                                   icon: Icon(
-                                                    Icons.call,
+                                                    Icons.call_rounded,
                                                     size: 23,
                                                   ),
                                                   label: Text(
@@ -151,13 +151,21 @@ class FavoriteScreen extends StatelessWidget {
                                                 blendMode: BlendMode.srcIn,
                                                 shaderCallback: (Rect bounds) {
                                                   return ui.Gradient.linear(
+                                                    // Offset(24.0, 4.0),
+                                                    // Offset(18.0, 24.0),
+                                                    // [
+                                                    //   Color.fromARGB(
+                                                    //       255, 5, 26, 130),
+                                                    //   Color.fromARGB(
+                                                    //       255, 71, 150, 215),
+                                                    // ],
                                                     Offset(24.0, 4.0),
                                                     Offset(18.0, 24.0),
                                                     [
                                                       Color.fromARGB(
-                                                          255, 5, 26, 130),
+                                                          255, 65, 182, 255),
                                                       Color.fromARGB(
-                                                          255, 71, 150, 215),
+                                                          255, 28, 140, 231),
                                                     ],
                                                   );
                                                 },

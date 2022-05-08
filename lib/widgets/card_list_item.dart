@@ -125,11 +125,17 @@ class CardListItem extends StatelessWidget {
                       blendMode: BlendMode.srcIn,
                       shaderCallback: (Rect bounds) {
                         return ui.Gradient.linear(
-                          Offset(24.0, 8.0),
+                          // Offset(24.0, 8.0),
+                          // Offset(18.0, 24.0),
+                          // [
+                          //   Color.fromARGB(255, 5, 26, 130),
+                          //   ui.Color.fromARGB(255, 26, 130, 216),
+                          // ],
+                          Offset(24.0, 4.0),
                           Offset(18.0, 24.0),
                           [
-                            Color.fromARGB(255, 5, 26, 130),
-                            ui.Color.fromARGB(255, 26, 130, 216),
+                            Color.fromARGB(255, 28, 140, 231),
+                            ui.Color.fromARGB(255, 101, 196, 255),
                           ],
                         );
                       },
