@@ -87,11 +87,12 @@ class _ContactListScreenState extends State<ContactListScreen> {
                           contactsProvider.items.length <= 0
                               ? Center(
                                   child: Text(
-                                  'No contacts yet',
-                                  style: TextStyle(
-                                    fontSize: 25,
+                                    'No contacts yet',
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                    ),
                                   ),
-                                ))
+                                )
                               : ListView.builder(
                                   controller: _scrollController,
                                   itemCount: contactsProvider.items.length,
