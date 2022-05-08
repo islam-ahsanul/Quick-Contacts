@@ -7,6 +7,8 @@ import './screens/addContacts_screen.dart';
 import './screens/contacts_detail_screen.dart';
 import './screens/tabs_screen.dart';
 import './screens/edit_screen.dart';
+import './screens/help_screen.dart';
+import './screens/about_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +40,8 @@ class MyApp extends StatelessWidget {
           AddContactScreen.routeName: (ctx) => AddContactScreen(),
           ContactDetailScreen.routeName: (ctx) => ContactDetailScreen(),
           EditScreen.routeName: (ctx) => EditScreen(),
+          HelpScreen.routeName: (ctx) => HelpScreen(),
+          AboutScreen.routeName: (ctx) => AboutScreen(),
         },
       ),
     );

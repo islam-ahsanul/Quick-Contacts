@@ -7,6 +7,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import './contacts_list_screen.dart';
 import './favories_screen.dart';
 import './small_tile_screen.dart';
+import './about_screen.dart';
+import './help_screen.dart';
 
 class TabScreen extends StatefulWidget {
   const TabScreen({Key? key}) : super(key: key);
@@ -133,6 +135,9 @@ class _TabScreenState extends State<TabScreen> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: ListTile(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(HelpScreen.routeName);
+                    },
                     title: Text(
                       'Help',
                       style: TextStyle(
@@ -146,6 +151,9 @@ class _TabScreenState extends State<TabScreen> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   child: ListTile(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(AboutScreen.routeName);
+                    },
                     title: Text(
                       'About',
                       style: TextStyle(
