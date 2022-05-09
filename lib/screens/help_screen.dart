@@ -49,6 +49,14 @@ class HelpScreen extends StatelessWidget {
                 ),
               ),
               Divider(),
+              Text(
+                'Please refresh to see the updated list after deleting a contact.',
+                style: TextStyle(
+                  fontFamily: 'RobotoMono',
+                  fontSize: 13,
+                ),
+              ),
+              Divider(),
             ],
           ),
         ),
