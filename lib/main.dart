@@ -9,6 +9,7 @@ import './screens/tabs_screen.dart';
 import './screens/edit_screen.dart';
 import './screens/help_screen.dart';
 import './screens/about_screen.dart';
+import './helpers/custom_route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +34,10 @@ class MyApp extends StatelessWidget {
           //   foregroundColor: Color.fromARGB(255, 6, 18, 82),
           //   backgroundColor: Colors.white,
           // ),
+          pageTransitionsTheme: PageTransitionsTheme(builders: {
+            TargetPlatform.android: CustomPageTransitionBuilder(),
+            TargetPlatform.iOS: CustomPageTransitionBuilder(),
+          }),
         ),
         // home: TabScreen(),
         routes: {
