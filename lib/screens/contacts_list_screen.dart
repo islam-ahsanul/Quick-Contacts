@@ -4,11 +4,10 @@ import 'package:flutter_scrolling_fab_animated/flutter_scrolling_fab_animated.da
 
 import './addContacts_screen.dart';
 import '../providers/contacts_provider.dart';
-import './contacts_detail_screen.dart';
 import '../widgets/card_list_item.dart';
 
 class ContactListScreen extends StatefulWidget {
-  ContactListScreen({Key? key}) : super(key: key);
+  const ContactListScreen({Key? key}) : super(key: key);
 
   @override
   State<ContactListScreen> createState() => _ContactListScreenState();
@@ -35,11 +34,11 @@ class _ContactListScreenState extends State<ContactListScreen> {
       floatingActionButton: ScrollingFabAnimated(
         elevation: 25,
         color: Colors.white,
-        icon: Icon(
+        icon: const Icon(
           Icons.add,
           color: Color.fromARGB(255, 6, 18, 82),
         ),
-        text: Text(
+        text: const Text(
           'Add Contact',
           style:
               TextStyle(color: Color.fromARGB(255, 6, 18, 82), fontSize: 15.0),
@@ -76,7 +75,7 @@ class _ContactListScreenState extends State<ContactListScreen> {
               .fetchAndSetContacts(),
           builder: (ctx, snapshot) =>
               snapshot.connectionState == ConnectionState.waiting
-                  ? Center(
+                  ? const Center(
                       child: CircularProgressIndicator(),
                     )
                   : Consumer<ContactsProvider>(
@@ -85,7 +84,7 @@ class _ContactListScreenState extends State<ContactListScreen> {
                       ),
                       builder: (ctx, contactsProvider, ch) =>
                           contactsProvider.items.length <= 0
-                              ? Center(
+                              ? const Center(
                                   child: Text(
                                     'No contacts yet',
                                     style: TextStyle(

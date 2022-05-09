@@ -91,7 +91,7 @@ class _TabScreenState extends State<TabScreen> {
                     gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.topRight,
-                      colors: [
+                      colors: const [
                         Color.fromARGB(255, 7, 31, 165),
                         Color.fromARGB(255, 2, 13, 74),
                       ],
@@ -188,9 +188,9 @@ class _TabScreenState extends State<TabScreen> {
                     padding: EdgeInsets.all(0),
                     value: 0,
                     child: Row(
-                      children: [
+                      children: const [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 9),
+                          padding: EdgeInsets.symmetric(horizontal: 9),
                           child: Icon(
                             Icons.refresh_rounded,
                             color: Colors.black,
@@ -229,7 +229,7 @@ class _TabScreenState extends State<TabScreen> {
               fontWeight: FontWeight.normal,
               fontFamily: 'SourceSansPro',
             ),
-            tabs: [
+            tabs: const [
               Tab(
                 icon: Icon(Icons.contacts),
                 text: 'All Contacts',

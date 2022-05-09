@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './screens/contacts_list_screen.dart';
 import './providers/contacts_provider.dart';
 import './screens/addContacts_screen.dart';
 import './screens/contacts_detail_screen.dart';
@@ -41,12 +40,12 @@ class MyApp extends StatelessWidget {
         ),
         // home: TabScreen(),
         routes: {
-          '/': (ctx) => TabScreen(),
-          AddContactScreen.routeName: (ctx) => AddContactScreen(),
-          ContactDetailScreen.routeName: (ctx) => ContactDetailScreen(),
-          EditScreen.routeName: (ctx) => EditScreen(),
-          HelpScreen.routeName: (ctx) => HelpScreen(),
-          AboutScreen.routeName: (ctx) => AboutScreen(),
+          '/': (ctx) => const TabScreen(),
+          AddContactScreen.routeName: (ctx) => const AddContactScreen(),
+          ContactDetailScreen.routeName: (ctx) => const ContactDetailScreen(),
+          EditScreen.routeName: (ctx) => const EditScreen(),
+          HelpScreen.routeName: (ctx) => const HelpScreen(),
+          AboutScreen.routeName: (ctx) => const AboutScreen(),
         },
       ),
     );

@@ -88,7 +88,7 @@ class _ImgaeInputState extends State<ImgaeInput> {
             alignment: Alignment.center,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         // ElevatedButton.icon(

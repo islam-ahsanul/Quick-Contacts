@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:async';
@@ -99,7 +97,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Contact'),
+        title: const Text('Add Contact'),
         centerTitle: true,
         flexibleSpace: Container(
           decoration: BoxDecoration(
@@ -124,31 +122,31 @@ class _AddContactScreenState extends State<AddContactScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ImgaeInput(onSelectImage: _selectImage, fromEdit: null),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     buildName(),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     buildPhone(),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     buildEmail(),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     buildAddress(),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     buildBirthday(),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     builNotes(),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
@@ -158,8 +156,8 @@ class _AddContactScreenState extends State<AddContactScreen> {
           ),
           ElevatedButton.icon(
             onPressed: _saveContact,
-            icon: Icon(Icons.add),
-            label: Text('Add contact'),
+            icon: const Icon(Icons.add),
+            label: const Text('Add contact'),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(
                 Color.fromARGB(255, 6, 18, 82),
@@ -180,7 +178,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Icons.account_box_rounded,
             size: 30,
           ),
@@ -196,7 +194,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Icons.mail_rounded,
             size: 30,
           ),
@@ -212,7 +210,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Icons.edit_location_outlined,
             size: 30,
           ),
@@ -229,7 +227,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Icons.note_alt_rounded,
             size: 30,
           ),
@@ -247,7 +245,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Icons.phone_android_rounded,
             size: 30,
           ),
@@ -263,7 +261,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Icons.calendar_month_rounded,
             size: 30,
           ),

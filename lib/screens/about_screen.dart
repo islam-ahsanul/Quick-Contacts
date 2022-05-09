@@ -12,7 +12,7 @@ class AboutScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 0,
-        title: Text(
+        title: const Text(
           'About',
           style: TextStyle(
             fontFamily: 'MPLUSRounded',
@@ -23,7 +23,7 @@ class AboutScreen extends StatelessWidget {
       ),
       body: Center(
         child: DefaultTextStyle(
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 30.0,
             color: Colors.black,
             fontFamily: 'RobotoMono',

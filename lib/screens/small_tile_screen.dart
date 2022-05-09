@@ -25,11 +25,11 @@ class _SmallTileScreenState extends State<SmallTileScreen> {
       floatingActionButton: ScrollingFabAnimated(
         elevation: 25,
         color: Colors.white,
-        icon: Icon(
+        icon: const Icon(
           Icons.add,
           color: Color.fromARGB(255, 6, 18, 82),
         ),
-        text: Text(
+        text: const Text(
           'Add Contact',
           style:
               TextStyle(color: Color.fromARGB(255, 6, 18, 82), fontSize: 15.0),
@@ -42,7 +42,7 @@ class _SmallTileScreenState extends State<SmallTileScreen> {
         curve: Curves.easeOut,
         radius: 15,
         // inverted: true,
-        duration: Duration(milliseconds: 200),
+        duration: const Duration(milliseconds: 200),
         width: 150,
       ),
       body: RefreshIndicator(
@@ -54,17 +54,17 @@ class _SmallTileScreenState extends State<SmallTileScreen> {
               .fetchAndSetContacts(),
           builder: (ctx, snapshot) => snapshot.connectionState ==
                   ConnectionState.waiting
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : Consumer<ContactsProvider>(
-                  child: Center(
+                  child: const Center(
                     child: Text('No contacts yet'),
                   ),
                   builder: (ctx, contactsProvider, ch) => contactsProvider
                               .items.length <=
                           0
-                      ? Center(
+                      ? const Center(
                           child: Text(
                             'No contacts yet',
                             style: TextStyle(
@@ -76,7 +76,7 @@ class _SmallTileScreenState extends State<SmallTileScreen> {
                           controller: _scrollController,
                           itemCount: contactsProvider.items.length,
                           itemBuilder: (ctx, i) => ListTile(
-                            shape: BorderDirectional(
+                            shape: const BorderDirectional(
                               bottom: BorderSide(
                                   color: Color.fromARGB(31, 189, 188, 188),
                                   width: 0.5),
@@ -92,7 +92,7 @@ class _SmallTileScreenState extends State<SmallTileScreen> {
                             title: Text(
                               contactsProvider.items[i].name,
                               softWrap: true,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'SourceSansPro',
                                 // fontWeight: FontWeight.bold,
                                 fontSize: 18,

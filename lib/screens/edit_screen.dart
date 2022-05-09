@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:async';
@@ -78,7 +76,7 @@ class _EditScreenState extends State<EditScreen> {
         TextEditingController(text: selectedContact.birthday);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Contact'),
+        title: const Text('Edit Contact'),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
@@ -108,7 +106,7 @@ class _EditScreenState extends State<EditScreen> {
                     ImgaeInput(
                         onSelectImage: _selectImage,
                         fromEdit: selectedContact.image),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -120,14 +118,14 @@ class _EditScreenState extends State<EditScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.account_box_rounded,
                           size: 30,
                         ),
                       ),
                       textInputAction: TextInputAction.next,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -140,7 +138,7 @@ class _EditScreenState extends State<EditScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.phone_android_rounded,
                           size: 30,
                         ),
@@ -148,7 +146,7 @@ class _EditScreenState extends State<EditScreen> {
                       keyboardType: TextInputType.phone,
                       textInputAction: TextInputAction.next,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -161,7 +159,7 @@ class _EditScreenState extends State<EditScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.mail_rounded,
                           size: 30,
                         ),
@@ -169,7 +167,7 @@ class _EditScreenState extends State<EditScreen> {
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -180,7 +178,7 @@ class _EditScreenState extends State<EditScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.edit_location_outlined,
                           size: 30,
                         ),
@@ -189,7 +187,7 @@ class _EditScreenState extends State<EditScreen> {
                       textInputAction: TextInputAction.done,
                       maxLines: null,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -200,7 +198,7 @@ class _EditScreenState extends State<EditScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.calendar_month_rounded,
                           size: 30,
                         ),
@@ -221,7 +219,7 @@ class _EditScreenState extends State<EditScreen> {
                         }
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -232,7 +230,7 @@ class _EditScreenState extends State<EditScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.note_alt_rounded,
                           size: 30,
                         ),
@@ -241,7 +239,7 @@ class _EditScreenState extends State<EditScreen> {
                       textInputAction: TextInputAction.newline,
                       maxLines: 4,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                   ],
@@ -287,8 +285,8 @@ class _EditScreenState extends State<EditScreen> {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil('/', (route) => false);
             },
-            icon: Icon(Icons.add),
-            label: Text('Save contact'),
+            icon: const Icon(Icons.add),
+            label: const Text('Save contact'),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(
                 Color.fromARGB(255, 6, 18, 82),

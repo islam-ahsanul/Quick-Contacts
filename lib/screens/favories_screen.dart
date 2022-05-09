@@ -18,7 +18,7 @@ class FavoriteScreen extends StatelessWidget {
             .fetchAndSetContacts(),
         builder: (ctx, snapshot) => snapshot.connectionState ==
                 ConnectionState.waiting
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(),
               )
             : Consumer<ContactsProvider>(
@@ -58,7 +58,7 @@ class FavoriteScreen extends StatelessWidget {
                                       'tel:${contactsProvider.items[i].phone}');
                                 },
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.only(
+                                  borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(20),
                                     bottomLeft: Radius.circular(20),
                                     topRight: Radius.circular(20),
@@ -96,7 +96,7 @@ class FavoriteScreen extends StatelessWidget {
                                               contactsProvider.items[i].name,
                                               // softWrap: true,
                                               textAlign: TextAlign.center,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 fontSize: 19,
                                                 // fontFamily: 'Roboto',
                                                 // fontWeight: FontWeight.normal,
@@ -136,11 +136,11 @@ class FavoriteScreen extends StatelessWidget {
                                                                 .items[i]
                                                                 .phone);
                                                   },
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                     Icons.call_rounded,
                                                     size: 23,
                                                   ),
-                                                  label: Text(
+                                                  label: const Text(
                                                     'Call',
                                                     style: TextStyle(
                                                       fontSize: 13,
@@ -152,7 +152,7 @@ class FavoriteScreen extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
-                                            VerticalDivider(
+                                            const VerticalDivider(
                                               thickness: 1,
                                             ),
                                             Expanded(
@@ -183,11 +183,11 @@ class FavoriteScreen extends StatelessWidget {
                                                     launch(
                                                         'sms:${contactsProvider.items[i].phone}');
                                                   },
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                     Icons.sms_rounded,
                                                     size: 23,
                                                   ),
-                                                  label: Text(
+                                                  label: const Text(
                                                     'Text',
                                                     style: TextStyle(
                                                       fontSize: 13,

@@ -11,7 +11,7 @@ class HelpScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 0,
-        title: Text(
+        title: const Text(
           'Help',
           style: TextStyle(
             fontFamily: 'MPLUSRounded',
@@ -24,7 +24,7 @@ class HelpScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           child: ListView(
-            children: [
+            children: const [
               Text(
                 'To ensure security, this app stores contacts only on this device. If you uninstall this app, all contacts stored in this app will be lost.',
                 style: TextStyle(

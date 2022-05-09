@@ -133,7 +133,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                           behavior: SnackBarBehavior.floating,
                           duration: Duration(seconds: 2),
                           backgroundColor: Colors.black,
-                          content: Text(
+                          content: const Text(
                             'Favorites updated',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -166,7 +166,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         ),
-                        title: Text(
+                        title: const Text(
                           'Do you want to delete this contact?',
                           // textAlign: TextAlign.center,
                           style: TextStyle(
@@ -179,7 +179,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: Text(
+                            child: const Text(
                               'Cancel',
                               style: TextStyle(
                                 fontFamily: 'MPLUSRounded',
@@ -198,7 +198,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                                   behavior: SnackBarBehavior.floating,
                                   duration: Duration(seconds: 3),
                                   backgroundColor: Colors.black,
-                                  content: Text(
+                                  content: const Text(
                                     'Contact has been deleted.\nPlease refresh the page to see the result.',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -209,7 +209,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                                 ),
                               );
                             },
-                            child: Text(
+                            child: const Text(
                               'Delete',
                               style: TextStyle(
                                 fontFamily: 'MPLUSRounded',
@@ -228,7 +228,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             pinned: true,
             // floating: true,
             flexibleSpace: FlexibleSpaceBar(
-              stretchModes: [
+              stretchModes: const [
                 StretchMode.zoomBackground,
                 StretchMode.blurBackground,
               ],
@@ -244,7 +244,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                     selectedContact.name,
                     textAlign: TextAlign.center,
                     softWrap: true,
-                    style: TextStyle(
+                    style: const TextStyle(
                       // backgroundColor: Colors.white30,
                       fontFamily: 'Comfortaa',
                       fontWeight: FontWeight.bold,
@@ -318,11 +318,11 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                     selectedContact.note,
                     selectedContact.isFavorite,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 600,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
+                  const Padding(
+                    padding: EdgeInsets.all(12.0),
                     child: Text(
                       'Swipe down to see details!',
                       textAlign: TextAlign.center,
@@ -346,15 +346,15 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
         await FlutterPhoneDirectCaller.callNumber(phone);
       },
       child: Column(
-        children: [
+        children: const [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 12, 0, 4),
+            padding: EdgeInsets.fromLTRB(0, 12, 0, 4),
             child: Icon(
               Icons.phone_rounded,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 4, 0, 12),
+            padding: EdgeInsets.fromLTRB(0, 4, 0, 12),
             child: Text(
               'Call',
               style: TextStyle(
@@ -378,15 +378,15 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
         launch('sms:$phone');
       },
       child: Column(
-        children: [
+        children: const [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 12, 0, 4),
+            padding: EdgeInsets.fromLTRB(0, 12, 0, 4),
             child: Icon(
               Icons.sms_rounded,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 4, 0, 12),
+            padding: EdgeInsets.fromLTRB(0, 4, 0, 12),
             child: Text(
               'Text',
               style: TextStyle(
@@ -410,15 +410,15 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
         launch('mailto:$email');
       },
       child: Column(
-        children: [
+        children: const [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 12, 0, 4),
+            padding: EdgeInsets.fromLTRB(0, 12, 0, 4),
             child: Icon(
               Icons.email_rounded,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 4, 0, 12),
+            padding: EdgeInsets.fromLTRB(0, 4, 0, 12),
             child: Text(
               'Email',
               style: TextStyle(
@@ -454,7 +454,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   behavior: SnackBarBehavior.floating,
                   duration: Duration(seconds: 1),
                   backgroundColor: Colors.black,
-                  content: Text(
+                  content: const Text(
                     'Copied phone number to clipboard',
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -467,7 +467,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
             },
             visualDensity: VisualDensity(vertical: -1),
             shape: RoundedRectangleBorder(
-              side: BorderSide(
+              side: const BorderSide(
                   color: ui.Color.fromARGB(255, 179, 255, 93), width: 1),
               borderRadius: BorderRadius.circular(30),
             ),
@@ -483,14 +483,14 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   ],
                 );
               },
-              child: Icon(
+              child: const Icon(
                 Icons.phone_android_rounded,
                 size: 30,
               ),
             ),
             title: Text(
               phone,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
               ),
             ),
@@ -515,7 +515,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         behavior: SnackBarBehavior.floating,
                         duration: Duration(seconds: 1),
                         backgroundColor: Colors.black,
-                        content: Text(
+                        content: const Text(
                           'Copied email address to clipboard',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -529,7 +529,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   visualDensity: VisualDensity(vertical: -1),
                   enabled: true,
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(
+                    side: const BorderSide(
                         color: ui.Color.fromARGB(255, 253, 220, 102), width: 1),
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -545,14 +545,14 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         ],
                       );
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.mail_outline_rounded,
                       size: 30,
                     ),
                   ),
                   title: Text(
                     email,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
@@ -577,7 +577,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         behavior: SnackBarBehavior.floating,
                         duration: Duration(seconds: 1),
                         backgroundColor: Colors.black,
-                        content: Text(
+                        content: const Text(
                           'Copied address to clipboard',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -605,14 +605,14 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         ],
                       );
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.location_on,
                       size: 30,
                     ),
                   ),
                   title: Text(
                     address,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
@@ -637,7 +637,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         behavior: SnackBarBehavior.floating,
                         duration: Duration(seconds: 1),
                         backgroundColor: Colors.black,
-                        content: Text(
+                        content: const Text(
                           'Copied birth date to clipboard',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -650,7 +650,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                   },
                   visualDensity: VisualDensity(vertical: -1),
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(
+                    side: const BorderSide(
                         color: ui.Color.fromARGB(255, 254, 156, 189), width: 1),
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -666,14 +666,14 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                         ],
                       );
                     },
-                    child: Icon(
+                    child: const Icon(
                       Icons.cake_rounded,
                       size: 30,
                     ),
                   ),
                   title: Text(
                     bd.split(',')[0],
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                     ),
                   ),
@@ -681,14 +681,14 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
               ),
         Container(
           child: note.length < 2
-              ? SizedBox(
+              ? const SizedBox(
                   height: 100,
                 )
               : Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(8, 15, 8, 8),
                       child: Text(
                         'Note:',
                         style: TextStyle(
@@ -714,7 +714,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                               behavior: SnackBarBehavior.floating,
                               duration: Duration(seconds: 1),
                               backgroundColor: Colors.black,
-                              content: Text(
+                              content: const Text(
                                 'Copied notes to clipboard',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -741,7 +741,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                               note,
                               textAlign: TextAlign.center,
                               // softWrap: true,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 18,
                               ),
                             ),

@@ -41,7 +41,7 @@ class CardListItem extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
@@ -50,7 +50,7 @@ class CardListItem extends StatelessWidget {
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    alignment: Alignment(0.0, -0.2),
+                    alignment: const Alignment(0.0, -0.2),
                     // alignment: Alignment.center,
                   ),
                 ),
@@ -64,11 +64,12 @@ class CardListItem extends StatelessWidget {
                       color: Colors.black54,
                     ),
                     // color: Colors.black54,
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: Text(
                       sentName,
                       textAlign: TextAlign.right,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 26,
                         color: Colors.white,
                         fontFamily: 'Comfortaa',
@@ -92,8 +93,8 @@ class CardListItem extends StatelessWidget {
                       blendMode: BlendMode.srcIn,
                       shaderCallback: (Rect bounds) {
                         return ui.Gradient.linear(
-                          Offset(24.0, 8.0),
-                          Offset(18.0, 24.0),
+                          const Offset(24.0, 8.0),
+                          const Offset(18.0, 24.0),
                           [
                             Colors.amber,
                             ui.Color.fromARGB(255, 238, 143, 0),
@@ -103,12 +104,12 @@ class CardListItem extends StatelessWidget {
                       child: TextButton.icon(
                         style: ButtonStyle(
                           padding: MaterialStateProperty.all(
-                              EdgeInsets.symmetric(vertical: 15.0)),
+                              const EdgeInsets.symmetric(vertical: 15.0)),
                           enableFeedback: true,
                           textStyle: MaterialStateProperty.all(
-                              TextStyle(fontSize: 18)),
+                              const TextStyle(fontSize: 18)),
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.info,
                         ),
                         onPressed: () {
@@ -116,7 +117,7 @@ class CardListItem extends StatelessWidget {
                               ContactDetailScreen.routeName,
                               arguments: sentId);
                         },
-                        label: Text(
+                        label: const Text(
                           'Details',
                           style: TextStyle(
                             fontFamily: 'SourceSansPro',
@@ -136,8 +137,8 @@ class CardListItem extends StatelessWidget {
                           //   Color.fromARGB(255, 5, 26, 130),
                           //   ui.Color.fromARGB(255, 26, 130, 216),
                           // ],
-                          Offset(24.0, 4.0),
-                          Offset(18.0, 24.0),
+                          const Offset(24.0, 4.0),
+                          const Offset(18.0, 24.0),
                           [
                             Color.fromARGB(255, 28, 140, 231),
                             ui.Color.fromARGB(255, 101, 196, 255),
@@ -147,18 +148,18 @@ class CardListItem extends StatelessWidget {
                       child: TextButton.icon(
                         style: ButtonStyle(
                           padding: MaterialStateProperty.all(
-                              EdgeInsets.symmetric(vertical: 15.0)),
+                              const EdgeInsets.symmetric(vertical: 15.0)),
                           enableFeedback: true,
                           textStyle: MaterialStateProperty.all(
-                              TextStyle(fontSize: 18)),
+                              const TextStyle(fontSize: 18)),
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.sms_rounded,
                         ),
                         onPressed: () {
                           launch('sms:$sentPhone');
                         },
-                        label: Text(
+                        label: const Text(
                           'Text',
                           style: TextStyle(
                             fontFamily: 'SourceSansPro',
@@ -173,8 +174,8 @@ class CardListItem extends StatelessWidget {
                       blendMode: BlendMode.srcIn,
                       shaderCallback: (Rect bounds) {
                         return ui.Gradient.linear(
-                          Offset(18.0, 24.0),
-                          Offset(24.0, 4.0),
+                          const Offset(18.0, 24.0),
+                          const Offset(24.0, 4.0),
                           [
                             Colors.greenAccent,
                             Colors.green,
@@ -184,18 +185,18 @@ class CardListItem extends StatelessWidget {
                       child: TextButton.icon(
                         style: ButtonStyle(
                           padding: MaterialStateProperty.all(
-                              EdgeInsets.symmetric(vertical: 15.0)),
+                              const EdgeInsets.symmetric(vertical: 15.0)),
                           enableFeedback: true,
                           textStyle: MaterialStateProperty.all(
                               TextStyle(fontSize: 18)),
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.call_rounded,
                         ),
                         onPressed: () async {
                           await FlutterPhoneDirectCaller.callNumber(sentPhone);
                         },
-                        label: Text(
+                        label: const Text(
                           'Call',
                           style: TextStyle(
                             fontFamily: 'SourceSansPro',
