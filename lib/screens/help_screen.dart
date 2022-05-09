@@ -20,13 +20,38 @@ class HelpScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Container(
-        child: Text('''
-          - This app stores contacts only on this device to ensure security. 
-           If you uninstall this app all contacts saved in this app will be deleted as well. 
-          - Adding, Editing, Deleting contacts does not effect your phone's default contacts app data.  
-          second line, 
-          third line'''),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          child: ListView(
+            children: [
+              Text(
+                'To ensure security, this app stores contacts only on this device. If you uninstall this app, all contacts stored in this app will be lost.',
+                style: TextStyle(
+                  fontFamily: 'RobotoMono',
+                  fontSize: 13,
+                ),
+              ),
+              Divider(),
+              Text(
+                'This app has no impact on the data in your phone\'s default contacts app when you add, edit, or delete contacts.',
+                style: TextStyle(
+                  fontFamily: 'RobotoMono',
+                  fontSize: 13,
+                ),
+              ),
+              Divider(),
+              Text(
+                'Long-press on the contact image to make an indirect phone call.',
+                style: TextStyle(
+                  fontFamily: 'RobotoMono',
+                  fontSize: 13,
+                ),
+              ),
+              Divider(),
+            ],
+          ),
+        ),
       ),
     );
   }

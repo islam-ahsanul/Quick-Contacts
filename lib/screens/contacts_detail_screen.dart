@@ -163,9 +163,12 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                     onPressed: () => showDialog(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
                         title: Text(
-                          'Delete this contact?',
-                          textAlign: TextAlign.center,
+                          'Do you want to delete this contact?',
+                          // textAlign: TextAlign.center,
                           style: TextStyle(
                             fontFamily: 'MPLUSRounded',
                             fontWeight: FontWeight.bold,
@@ -196,7 +199,7 @@ class _ContactDetailScreenState extends State<ContactDetailScreen> {
                                   duration: Duration(seconds: 3),
                                   backgroundColor: Colors.black,
                                   content: Text(
-                                    'Deleted the contact. Refresh the page to see effect.',
+                                    'Contact has been deleted.\nPlease refresh the page to see the result.',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: 'SourceSansPro',

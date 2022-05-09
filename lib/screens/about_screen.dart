@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -21,7 +22,25 @@ class AboutScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Text('This app is created by Ahsanu Islam'),
+        child: DefaultTextStyle(
+          style: TextStyle(
+            fontSize: 30.0,
+            color: Colors.black,
+            fontFamily: 'RobotoMono',
+            // fontWeight: FontWeight.bold,
+          ),
+          child: AnimatedTextKit(
+            repeatForever: true,
+            animatedTexts: [
+              FlickerAnimatedText(
+                'This App',
+              ),
+              FlickerAnimatedText('is created'),
+              FlickerAnimatedText('by'),
+              FlickerAnimatedText('Ahsanul Islam'),
+            ],
+          ),
+        ),
       ),
     );
   }
