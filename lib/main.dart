@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import './providers/contacts_provider.dart';
 import './screens/addContacts_screen.dart';
@@ -10,8 +11,15 @@ import './screens/help_screen.dart';
 import './screens/about_screen.dart';
 import './helpers/custom_route.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.removeAfter(initialization);
+
   runApp(const MyApp());
+}
+
+Future initialization(BuildContext? context) async {
+  await Future.delayed(const Duration(seconds: 1));
 }
 
 class MyApp extends StatelessWidget {
