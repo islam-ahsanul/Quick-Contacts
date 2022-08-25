@@ -27,7 +27,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
   final _phoneController = TextEditingController();
   final _birthdayController = TextEditingController();
   var _pickedImage = null;
-  bool _phoneVal = false;
+  // bool _phoneVal = false;
   bool _emailVal = false;
   bool _nameVal = false;
 
@@ -48,7 +48,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
   void _saveContact() async {
     // ---------- Validation -----------------------------
     setState(() {
-      _phoneController.text.length != 11 ? _phoneVal = true : _phoneVal = false;
+      // _phoneController.text.length != 11 ? _phoneVal = true : _phoneVal = false;
       if (_emailController.text.isNotEmpty) {
         _emailController.text.contains('@') &&
                 _emailController.text.contains('.')
@@ -58,7 +58,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
       _nameController.text.isEmpty ? _nameVal = true : _nameVal = false;
     });
     // ---------------------------------------------------
-    if (_nameVal == true || _phoneVal == true || _emailVal == true) {
+    if (_nameVal == true || _emailVal == true) {
       // can add showDialog
       return;
     }
@@ -240,8 +240,8 @@ class _AddContactScreenState extends State<AddContactScreen> {
         controller: _phoneController,
         decoration: InputDecoration(
           labelText: 'Phone',
-          hintText: 'Enter 11 digit phone number',
-          errorText: _phoneVal ? 'Enter 11 digit phone number' : null,
+          hintText: 'Enter phone number',
+          // errorText: _phoneVal ? 'Enter 11 digit phone number' : null,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           ),
